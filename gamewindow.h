@@ -3,13 +3,8 @@
 
 #include <QOpenGLWindow>
 #include <QOpenGLFunctions>
-#include <QTimer>
-#include <vector>
-#include "assetmanager.h"
-#include "basicshader.h"
-#include "camera.h"
-#include "entity.h"
 #include "scene.h"
+#include <QTimer>
 
 class GameWindow : public QOpenGLWindow, protected QOpenGLFunctions
 {
@@ -27,19 +22,9 @@ private:
     void updateScene();
     void renderScene();
 
-    Scene *scene;
-
-    AssetManager *assetManager;
-    BasicShader *basicShader;
-
     QTimer *timer;
-    Camera *camera;
-
-    glm::vec3 lightPos;
-    glm::vec3 lightColor;
-
-    Entity *entity;
-
+    Scene *scene;
+    bool isInit = false;
 };
 
 #endif // GAMEWINDOW_H
