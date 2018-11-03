@@ -28,7 +28,16 @@ bool ModelLoader::Load(QString pathToFile) {
     }
 
     if (scene->HasMeshes()) {
-        qDebug() << "scene has meshes" << endl;
+
+        qDebug() << "scene has " << scene->mNumMeshes << "meshes " << endl;
+
+        for (int i = 0; i < scene->mNumMeshes; i++) {
+                aiMesh *mesh = scene->mMeshes[i];
+                meshes.push_back(mesh);
+        }
+
+        qDebug() << meshes.size() << " meshes added to 'meshes' vector" << endl;
+
         return true;
     } else {
         qDebug() << "No meshed found" << endl;;

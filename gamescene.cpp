@@ -31,12 +31,12 @@ void GameScene::init()
     lightboxShader = new LightboxShader();
     lightboxShader->compile();
 
-    entity = new Entity();
+    entity = new Cube();
     entity->initialize(0.0f, 0.0f, 0.0f);
     entity->setVisible(true);
     entity->setTextureId(assetManager->cubeTextureId);
 
-    lightBox = new Entity();
+    lightBox = new Cube();
     lightBox->initialize(lightPos.x, lightPos.y, lightPos.z);
     lightBox->setVisible(true);
     lightBox->setSize(glm::vec3(0.2f, 0.2f, 0.2f));

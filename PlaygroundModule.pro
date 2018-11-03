@@ -37,11 +37,11 @@ SOURCES += \
     assetmanager.cpp \
     shader.cpp \
     basicshader.cpp \
-    entity.cpp \
     scene.cpp \
     gamescene.cpp \
     lightboxshader.cpp \
-    modelloader.cpp
+    modelloader.cpp \
+    cube.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -52,11 +52,11 @@ HEADERS += \
     camera.h \
     shader.h \
     basicshader.h \
-    entity.h \
     scene.h \
     gamescene.h \
     lightboxshader.h \
-    modelloader.h
+    modelloader.h \
+    cube.h
 
 FORMS += \
         mainwindow.ui

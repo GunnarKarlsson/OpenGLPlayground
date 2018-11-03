@@ -1,6 +1,6 @@
-#include "entity.h"
+#include "cube.h"
 
-Entity::Entity()
+Cube::Cube()
 {
     xPos = 0;
     yPos = 0;
@@ -24,33 +24,33 @@ Entity::Entity()
     glEnableVertexAttribArray(2);
 }
 
-Entity::~Entity()
+Cube::~Cube()
 {
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
 }
 
-void Entity::setTextureId(unsigned int &id)
+void Cube::setTextureId(unsigned int &id)
 {
     textureId = id;
 }
 
-void Entity::setVelocity(int velocity)
+void Cube::setVelocity(int velocity)
 {
     this->velocity = velocity;
 }
 
-void Entity::setSize(glm::vec3 size)
+void Cube::setSize(glm::vec3 size)
 {
     this->size =  size;
 }
 
-bool Entity::setVisible(bool value)
+bool Cube::setVisible(bool value)
 {
     this->visible = value;
 }
 
-void Entity::render(glm::mat4 &view, glm::mat4 &projection, glm::vec3 lightPos, glm::vec3 lightColor, Shader *shader)
+void Cube::render(glm::mat4 &view, glm::mat4 &projection, glm::vec3 lightPos, glm::vec3 lightColor, Shader *shader)
 {
   if (visible) {
     shader->setInt("texture0", 0);
@@ -73,7 +73,7 @@ void Entity::render(glm::mat4 &view, glm::mat4 &projection, glm::vec3 lightPos, 
    }
 }
 
-void Entity::initialize(float x, float y, float z)
+void Cube::initialize(float x, float y, float z)
 {
     xPos = x;
     yPos = y;
@@ -82,28 +82,27 @@ void Entity::initialize(float x, float y, float z)
 }
 
 
-void Entity::moveLeft()
+void Cube::moveLeft()
 {
     xPos -= 1.0;
 }
 
-void Entity::moveRight()
+void Cube::moveRight()
 {
     xPos += 1.0;
 }
 
-void Entity::moveUp()
+void Cube::moveUp()
 {
     yPos += 1.0;
 }
 
-void Entity::moveDown()
+void Cube::moveDown()
 {
     yPos -= 1.0;
 }
 
-bool Entity::isVisible()
+bool Cube::isVisible()
 {
     return visible;
 }
-

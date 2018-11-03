@@ -7,7 +7,7 @@
 #include "basicshader.h"
 #include "lightboxshader.h"
 #include "camera.h"
-#include "entity.h"
+#include "cube.h"
 #include "modelloader.h"
 
 class GameScene : public Scene
@@ -30,8 +30,8 @@ private:
     glm::vec3 lightPos;
     glm::vec3 lightColor;
 
-    Entity *entity;
-    Entity *lightBox;
+    Cube *entity;
+    Cube *lightBox;
 };
 
 #endif // GAMESCENE_H

@@ -1,14 +1,14 @@
-#ifndef ENTITY_H
-#define ENTITY_H
+#ifndef CUBE_H
+#define CUBE_H
 
 #include "common.h"
 #include "shader.h"
 
-class Entity
+class Cube
 {
 public:
-    Entity();
-    ~Entity();
+    Cube();
+    ~Cube();
     void setTextureId(unsigned int &id);
     void setVelocity(int velocity);
     void setSize(glm::vec3 size);
@@ -77,4 +77,5 @@ private:
     };
 };
 
-#endif // ENTITY_H
+
+#endif // CUBE_H
