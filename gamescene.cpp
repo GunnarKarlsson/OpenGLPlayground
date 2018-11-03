@@ -12,7 +12,11 @@ GameScene::~GameScene()
     delete basicShader;
     delete camera;
     delete entity;
+    delete loadedModel;
+    delete lightBox;
     delete modelLoader;
+    delete lightboxShader;
+    delete loadedModelShader;
 }
 
 void GameScene::init()
@@ -31,6 +35,9 @@ void GameScene::init()
     lightboxShader = new LightboxShader();
     lightboxShader->compile();
 
+    loadedModelShader = new LoadedModelShader();
+    loadedModelShader->compile();
+
     entity = new Cube();
     entity->initialize(0.0f, 0.0f, 0.0f);
     entity->setVisible(true);
@@ -42,7 +49,7 @@ void GameScene::init()
     lightBox->setSize(glm::vec3(0.2f, 0.2f, 0.2f));
 
     modelLoader = new ModelLoader();
-    modelLoader->Load("/Users/gunnarkarlsson/git/PlaygroundModule/spaceCraft4.obj");
+    loadedModel = modelLoader->Load("/Users/gunnarkarlsson/git/PlaygroundModule/spaceCraft4.obj");
 
     glEnable(GL_DEPTH_TEST);
 }
@@ -61,6 +68,9 @@ void GameScene::render()
     glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, (float)NEAR_LIMIT, (float)FAR_LIMIT);
 
     entity->render(view, projection, lightPos, lightColor, basicShader);
+
+    loadedModel->render(view, projection, lightPos, lightColor, loadedModelShader);
+
     lightBox->render(view, projection, lightPos, lightColor, lightboxShader);
 }
 

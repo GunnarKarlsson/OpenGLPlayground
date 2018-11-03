@@ -5,13 +5,13 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices)
     this->vertices = vertices;
     this->indices = indices;
 
-    xPos = 0.0f;
+    xPos = 3.0f;
     yPos = 0.0f;
     zPos = 0.0f;
 
-    size = glm::vec3(1.0f, 1.0f, 1.0f);
+    size = glm::vec3(0.1f, 0.1f, 0.1f);
 
-    objectColor = glm::vec3(1.0f, 1.0f, 1.0f);//TODO set from loaded model
+    objectColor = glm::vec3(0.0f, 1.0f, 1.0f);//TODO set from loaded model
 
     init();
 }
@@ -47,15 +47,6 @@ void Mesh::init()
          // vertex normals
          glEnableVertexAttribArray(1);
          glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Normal));
-         // vertex texture coords
-         glEnableVertexAttribArray(2);
-         glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, TexCoords));
-         // vertex tangent
-         glEnableVertexAttribArray(3);
-         glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Tangent));
-         // vertex bitangent
-         glEnableVertexAttribArray(4);
-         glVertexAttribPointer(4, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Bitangent));
 
          glBindVertexArray(0);
 }

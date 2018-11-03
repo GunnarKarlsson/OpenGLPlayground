@@ -6,6 +6,7 @@
 #include "assetmanager.h"
 #include "basicshader.h"
 #include "lightboxshader.h"
+#include "loadedmodelshader.h"
 #include "camera.h"
 #include "cube.h"
 #include "modelloader.h"
@@ -22,8 +23,10 @@ public:
 private:
     AssetManager *assetManager;
     ModelLoader *modelLoader;
+
     BasicShader *basicShader;
     LightboxShader *lightboxShader;
+    LoadedModelShader *loadedModelShader;
 
     Camera *camera;
 
@@ -32,6 +35,7 @@ private:
 
     Cube *entity;
     Cube *lightBox;
+    LoadedModel *loadedModel;
 };
 
 #endif // GAMESCENE_H

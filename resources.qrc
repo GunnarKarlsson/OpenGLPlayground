@@ -4,5 +4,7 @@
         <file>basic.frag</file>
         <file>lightbox.vert</file>
         <file>lightbox.frag</file>
+        <file>loadedmodel.vert</file>
+        <file>loadedmodel.frag</file>
     </qresource>
 </RCC>

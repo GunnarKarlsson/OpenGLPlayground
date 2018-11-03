@@ -43,7 +43,8 @@ SOURCES += \
     modelloader.cpp \
     cube.cpp \
     loadedmodel.cpp \
-    mesh.cpp
+    mesh.cpp \
+    loadedmodelshader.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -60,7 +61,8 @@ HEADERS += \
     modelloader.h \
     cube.h \
     loadedmodel.h \
-    mesh.h
+    mesh.h \
+    loadedmodelshader.h
 
 FORMS += \
         mainwindow.ui
@@ -71,7 +73,9 @@ DISTFILES += \
     lightbox.vert \
     lightbox.frag \
     spaceCraft4.obj \
-    spaceCraft4.mtl
+    spaceCraft4.mtl \
+    loadedmodel.vert \
+    loadedmodel.frag
 
 RESOURCES += \
     resources.qrc
