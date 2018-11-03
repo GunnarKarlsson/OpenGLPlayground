@@ -9,7 +9,7 @@
 class Mesh
 {
 public:
-    Mesh(std::vector<float> vertices, std::vector<unsigned int> indices);
+    Mesh(std::vector<float> vertices, std::vector<unsigned int> indices, glm::vec3 color);
     ~Mesh();
     void render(glm::mat4 &view, glm::mat4 &projection, glm::vec3 lightPos, glm::vec3 lightColor, Shader *shader);
 

@@ -1,6 +1,6 @@
 #include "mesh.h"
 
-Mesh::Mesh(std::vector<float> vertices, std::vector<unsigned int> indices)
+Mesh::Mesh(std::vector<float> vertices, std::vector<unsigned int> indices, glm::vec3 color)
 {
     this->vertices = vertices;
     this->indices = indices;
@@ -11,7 +11,7 @@ Mesh::Mesh(std::vector<float> vertices, std::vector<unsigned int> indices)
 
     size = glm::vec3(0.1f, 0.1f, 0.1f);
 
-    objectColor = glm::vec3(1.0f, 1.0f, 1.0f);//TODO set from loaded model
+    objectColor = color;
 
     init();
 }
@@ -35,7 +35,7 @@ void Mesh::init()
          // A great thing about structs is that their memory layout is sequential for all its items.
          // The effect is that we can simply pass a pointer to the struct and it translates perfectly to a glm::vec3/2 array which
          // again translates to 3/2 floats which translates to a byte array.
-         glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), &vertices[0], GL_STATIC_DRAW);
+         glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), &vertices[0], GL_STATIC_DRAW);
 
          glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
          glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW);

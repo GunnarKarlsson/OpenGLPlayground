@@ -60,10 +60,19 @@ LoadedModel* ModelLoader::Load(QString pathToFile)
             }
         }
 
+        glm::vec3 diffuseColor;
+        aiMaterial* material = scene->mMaterials[aiMesh->mMaterialIndex];
+        aiColor4D diffuse;
+        if (AI_SUCCESS == aiGetMaterialColor(material, AI_MATKEY_COLOR_DIFFUSE, &diffuse)) {
+            diffuseColor = glm::vec3(diffuse.r, diffuse.g, diffuse.b);
+        } else {
+            diffuseColor = glm::vec3(0.7f, 0.7f, 0.7f);
+        }
+
         qDebug() << "vertices.size()" << vertices.size();
         qDebug() << "indices.size()" << indices.size();
 
-        Mesh *mesh = new Mesh(vertices, indices);
+        Mesh *mesh = new Mesh(vertices, indices, diffuseColor);
         loadedModel->addMesh(mesh);
     }
 
