@@ -80,22 +80,20 @@ void GameScene::handleEvent(QEvent* event)
     case QEvent::KeyPress:{
         QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
         switch (keyEvent->key()) {
-            case Qt::Key_Right:
-            //TODO
-            entity->moveRight();
+        case Qt::Key_Right:
+            camera->ProcessKeyboard(RIGHT, 0.1);
             break;
         case Qt::Key_Left:
-            //TODO
-            entity->moveLeft();
+            camera->ProcessKeyboard(LEFT, 0.1);
             break;
         case Qt::Key_Up:
-            entity->moveUp();
+            camera->ProcessKeyboard(FORWARD, 0.1);
             break;
         case Qt::Key_Down:
-            entity->moveDown();
+            camera->ProcessKeyboard(BACKWARD, 0.1);
             break;
         case Qt::Key_P:
-           //TODO
+            //TODO
             break;
         case Qt::Key_Escape:
             exit(0);
