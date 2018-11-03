@@ -7,11 +7,11 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices)
 
     xPos = 3.0f;
     yPos = 0.0f;
-    zPos = 0.0f;
+    zPos = 1.0f;
 
     size = glm::vec3(0.1f, 0.1f, 0.1f);
 
-    objectColor = glm::vec3(0.0f, 1.0f, 1.0f);//TODO set from loaded model
+    objectColor = glm::vec3(1.0f, 1.0f, 1.0f);//TODO set from loaded model
 
     init();
 }
