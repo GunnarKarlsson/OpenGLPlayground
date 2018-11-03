@@ -12,6 +12,7 @@ GameWindow::~GameWindow()
     delete basicShader;
     delete timer;
     delete camera;
+    delete entity;
 }
 
 void GameWindow::initializeGL()
@@ -27,10 +28,15 @@ void GameWindow::initializeGL()
     assetManager = new AssetManager();
     assetManager->loadAssets();
 
-    camera = new Camera(glm::vec3(0.0f, 0.0f, 10.0f));
+    camera = new Camera(glm::vec3(2.0f, 2.0f, 7.0f));
 
     basicShader = new BasicShader();
     basicShader->compile();
+
+    entity = new Entity();
+    entity->initialize(0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+    entity->setVisible(true);
+    entity->setTextureId(assetManager->cubeTextureId);
 
     glEnable(GL_DEPTH_TEST);
 
@@ -52,7 +58,7 @@ void GameWindow::paintGL()
 
 void GameWindow::updateScene()
 {
-
+    //TODO: update data/model
 }
 
 void GameWindow::renderScene()
@@ -63,7 +69,7 @@ void GameWindow::renderScene()
     glm::mat4 view = camera->GetViewMatrix();
     glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, (float)NEAR_LIMIT, (float)FAR_LIMIT);
 
-    //TODO render entities
+    entity->render(view, projection, lightPos, lightColor, basicShader);
 }
 
 bool GameWindow::eventFilter( QObject* object, QEvent* event)

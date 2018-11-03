@@ -31,7 +31,8 @@ SOURCES += \
     gamewindow.cpp \
     assetmanager.cpp \
     shader.cpp \
-    basicshader.cpp
+    basicshader.cpp \
+    entity.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -41,7 +42,8 @@ HEADERS += \
     common.h \
     camera.h \
     shader.h \
-    basicshader.h
+    basicshader.h \
+    entity.h
 
 FORMS += \
         mainwindow.ui

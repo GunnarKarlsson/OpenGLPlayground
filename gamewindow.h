@@ -8,6 +8,7 @@
 #include "assetmanager.h"
 #include "basicshader.h"
 #include "camera.h"
+#include "entity.h"
 
 class GameWindow : public QOpenGLWindow, protected QOpenGLFunctions
 {
@@ -33,6 +34,8 @@ private:
 
     glm::vec3 lightPos;
     glm::vec3 lightColor;
+
+    Entity *entity;
 
 };
 
