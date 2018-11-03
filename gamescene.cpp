@@ -27,7 +27,7 @@ void GameScene::init()
     assetManager = new AssetManager();
     assetManager->loadAssets();
 
-    camera = new Camera(glm::vec3(2.0f, 2.0f, 7.0f));
+    camera = new Camera(glm::vec3(2.0f, 2.0f, 700.0f));
 
     basicShader = new BasicShader();
     basicShader->compile();
@@ -68,6 +68,8 @@ void GameScene::render()
     glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glClearColor(0.4, 0.6, 0.8, 1.0);
+    camera->Yaw = 45.0f;
+    camera->Pitch = -35.264f;
     glm::mat4 view = camera->GetViewMatrix();
     //glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, (float)NEAR_LIMIT, (float)FAR_LIMIT);
 
