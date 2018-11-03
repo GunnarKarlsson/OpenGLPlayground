@@ -9,6 +9,7 @@
 #include "basicshader.h"
 #include "camera.h"
 #include "entity.h"
+#include "scene.h"
 
 class GameWindow : public QOpenGLWindow, protected QOpenGLFunctions
 {
@@ -25,6 +26,8 @@ public:
 private:
     void updateScene();
     void renderScene();
+
+    Scene *scene;
 
     AssetManager *assetManager;
     BasicShader *basicShader;

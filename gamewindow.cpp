@@ -38,6 +38,8 @@ void GameWindow::initializeGL()
     entity->setVisible(true);
     entity->setTextureId(assetManager->cubeTextureId);
 
+    scene = new Scene();
+
     glEnable(GL_DEPTH_TEST);
 
     timer = new QTimer(this);
@@ -59,10 +61,12 @@ void GameWindow::paintGL()
 void GameWindow::updateScene()
 {
     //TODO: update data/model
+    scene->update();
 }
 
 void GameWindow::renderScene()
 {
+    scene->render();
     glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glClearColor(0.4, 0.6, 0.8, 1.0);

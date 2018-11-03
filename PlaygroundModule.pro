@@ -32,7 +32,9 @@ SOURCES += \
     assetmanager.cpp \
     shader.cpp \
     basicshader.cpp \
-    entity.cpp
+    entity.cpp \
+    scene.cpp \
+    gamescene.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -43,7 +45,9 @@ HEADERS += \
     camera.h \
     shader.h \
     basicshader.h \
-    entity.h
+    entity.h \
+    scene.h \
+    gamescene.h
 
 FORMS += \
         mainwindow.ui
