@@ -4,10 +4,12 @@ BasicShader::BasicShader() : Shader() {}
 
 BasicShader::~BasicShader() {}
 
-const char* BasicShader::getShaderName() {
+const char* BasicShader::getShaderName()
+{
     return "Basic Shader";
 }
 
-void BasicShader::compile() {
+void BasicShader::compile()
+{
     Shader::compile(":/Shaders/basic.vert", ":/Shaders/basic.frag");
 }

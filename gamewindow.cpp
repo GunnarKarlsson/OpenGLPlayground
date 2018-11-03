@@ -1,19 +1,21 @@
 #include "gamewindow.h"
 #include <QKeyEvent>
 
-GameWindow::GameWindow() : QOpenGLWindow(QOpenGLWindow::NoPartialUpdate) {
+GameWindow::GameWindow() : QOpenGLWindow(QOpenGLWindow::NoPartialUpdate)
+{
     installEventFilter(this);
 }
 
-GameWindow::~GameWindow() {
+GameWindow::~GameWindow()
+{
     delete assetManager;
     delete basicShader;
     delete timer;
     delete camera;
 }
 
-void GameWindow::initializeGL() {
-
+void GameWindow::initializeGL()
+{
     initializeOpenGLFunctions();
 
     qDebug() << "version: " << QLatin1String(reinterpret_cast<const char*>(glGetString(GL_VERSION)));
@@ -37,20 +39,24 @@ void GameWindow::initializeGL() {
     timer->start(20);
 }
 
-void GameWindow::resizeGL(int width, int height) {
-
+void GameWindow::resizeGL(int width, int height)
+{
+    //TODO
 }
 
-void GameWindow::paintGL() {
+void GameWindow::paintGL()
+{
     updateScene();
     renderScene();
 }
 
-void GameWindow::updateScene() {
+void GameWindow::updateScene()
+{
 
 }
 
-void GameWindow::renderScene() {
+void GameWindow::renderScene()
+{
     glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glClearColor(0.4, 0.6, 0.8, 1.0);
@@ -60,7 +66,8 @@ void GameWindow::renderScene() {
     //TODO render entities
 }
 
-bool GameWindow::eventFilter( QObject* object, QEvent* event) {
+bool GameWindow::eventFilter( QObject* object, QEvent* event)
+{
     switch(event->type()) {
     case QEvent::KeyPress:{
         QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);

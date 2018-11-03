@@ -7,12 +7,14 @@ AssetManager::AssetManager(){}
 
 AssetManager::~AssetManager() {}
 
-void AssetManager::loadAssets() {
+void AssetManager::loadAssets()
+{
     const char * filePathCube = "/Users/gunnarkarlsson/git/PlaygroundModule/cube.png";
     loadTexture(filePathCube, cubeTextureId);
 }
 
-void AssetManager::loadTexture(const char* filePath, unsigned int &textureId) {
+void AssetManager::loadTexture(const char* filePath, unsigned int &textureId)
+{
     glGenTextures(1, &textureId);
     glBindTexture(GL_TEXTURE_2D, textureId);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);

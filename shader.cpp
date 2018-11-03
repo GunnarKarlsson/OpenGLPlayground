@@ -1,7 +1,8 @@
 #include "shader.h"
 #include <QFile>
 
-static void printShaderLog(GLuint shader) {
+static void printShaderLog(GLuint shader)
+{
     char buf[2048];
     memset(buf, 0, sizeof(buf));
     LOGE("Getting info log for shader %u", shader);
@@ -9,7 +10,8 @@ static void printShaderLog(GLuint shader) {
     qDebug() << "Shader error log: " << buf << endl;
 }
 
-static void printProgramLog(GLuint program) {
+static void printProgramLog(GLuint program)
+{
     char buf[2048];
     memset(buf, 0, sizeof(buf));
     LOGE("Getting info log for program %u", program);
@@ -22,19 +24,20 @@ Shader::Shader()
 
 }
 
-Shader::~Shader() {
+Shader::~Shader() {}
 
-}
-
-const char* getShaderName() {
+const char* getShaderName()
+{
     return "no shader name - base class";
 }
 
-void Shader::compile() {
+void Shader::compile()
+{
     //Do nothing
 }
 
-void Shader::compile(const char* vertPath, const char* fragPath) {
+void Shader::compile(const char* vertPath, const char* fragPath)
+{
     GLint status = 0;
 
     std::string vertStr;
@@ -96,7 +99,8 @@ void Shader::compile(const char* vertPath, const char* fragPath) {
     LOGD("Program linking successful");
 }
 
-void Shader::loadShader(const char* filePath, std::string &source) {
+void Shader::loadShader(const char* filePath, std::string &source)
+{
     QFile file(filePath);
     if (!file.open(QFile::ReadOnly | QFile::Text)) {
         qDebug() << "Error opening file" << endl;
@@ -107,7 +111,8 @@ void Shader::loadShader(const char* filePath, std::string &source) {
     source = s.toStdString();
 }
 
-void Shader::printShaderLog(GLuint shader) {
+void Shader::printShaderLog(GLuint shader)
+{
     char buf[2048];
     memset(buf, 0, sizeof(buf));
     LOGE("Getting info log for shader %u", shader);
@@ -115,7 +120,8 @@ void Shader::printShaderLog(GLuint shader) {
     qDebug() << "Shader error log: " << buf << endl;
 }
 
-void Shader::printProgramLog(GLuint program) {
+void Shader::printProgramLog(GLuint program)
+{
     char buf[2048];
     memset(buf, 0, sizeof(buf));
     LOGE("Getting info log for program %u", program);
