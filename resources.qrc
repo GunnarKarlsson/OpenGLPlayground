@@ -2,5 +2,7 @@
     <qresource prefix="/Shaders">
         <file>basic.vert</file>
         <file>basic.frag</file>
+        <file>lightbox.vert</file>
+        <file>lightbox.frag</file>
     </qresource>
 </RCC>

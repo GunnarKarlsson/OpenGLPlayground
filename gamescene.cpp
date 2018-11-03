@@ -1,19 +1,22 @@
 #include "gamescene.h"
 #include <QKeyEvent>
 
-GameScene::GameScene() {
+GameScene::GameScene()
+{
 
 }
 
-GameScene::~GameScene() {
+GameScene::~GameScene()
+{
     delete assetManager;
     delete basicShader;
     delete camera;
     delete entity;
 }
 
-void GameScene::init() {
-    lightPos = glm::vec3(0.0, 0.0, 3.0);
+void GameScene::init()
+{
+    lightPos = glm::vec3(3.0, 3.0, 1.0);
     lightColor = glm::vec3(1.0, 1.0, 1.0);
 
     assetManager = new AssetManager();
@@ -24,19 +27,29 @@ void GameScene::init() {
     basicShader = new BasicShader();
     basicShader->compile();
 
+    lightboxShader = new LightboxShader();
+    lightboxShader->compile();
+
     entity = new Entity();
     entity->initialize(0.0f, 0.0f, 0.0f);
     entity->setVisible(true);
     entity->setTextureId(assetManager->cubeTextureId);
 
+    lightBox = new Entity();
+    lightBox->initialize(lightPos.x, lightPos.y, lightPos.z);
+    lightBox->setVisible(true);
+    lightBox->setSize(glm::vec3(0.2f, 0.2f, 0.2f));
+
     glEnable(GL_DEPTH_TEST);
 }
 
-void GameScene::update() {
+void GameScene::update()
+{
 
 }
 
-void GameScene::render() {
+void GameScene::render()
+{
     glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glClearColor(0.4, 0.6, 0.8, 1.0);
@@ -44,9 +57,11 @@ void GameScene::render() {
     glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, (float)NEAR_LIMIT, (float)FAR_LIMIT);
 
     entity->render(view, projection, lightPos, lightColor, basicShader);
+    lightBox->render(view, projection, lightPos, lightColor, lightboxShader);
 }
 
-void GameScene::handleEvent(QEvent* event) {
+void GameScene::handleEvent(QEvent* event)
+{
     switch(event->type()) {
     case QEvent::KeyPress:{
         QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);

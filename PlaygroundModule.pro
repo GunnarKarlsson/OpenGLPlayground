@@ -34,7 +34,8 @@ SOURCES += \
     basicshader.cpp \
     entity.cpp \
     scene.cpp \
-    gamescene.cpp
+    gamescene.cpp \
+    lightboxshader.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -47,14 +48,17 @@ HEADERS += \
     basicshader.h \
     entity.h \
     scene.h \
-    gamescene.h
+    gamescene.h \
+    lightboxshader.h
 
 FORMS += \
         mainwindow.ui
 
 DISTFILES += \
     basic.vert \
-    basic.frag
+    basic.frag \
+    lightbox.vert \
+    lightbox.frag
 
 RESOURCES += \
     resources.qrc

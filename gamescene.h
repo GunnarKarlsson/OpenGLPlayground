@@ -5,6 +5,7 @@
 #include "scene.h"
 #include "assetmanager.h"
 #include "basicshader.h"
+#include "lightboxshader.h"
 #include "camera.h"
 #include "entity.h"
 
@@ -21,6 +22,7 @@ public:
 private:
     AssetManager *assetManager;
     BasicShader *basicShader;
+    LightboxShader *lightboxShader;
 
     Camera *camera;
 
@@ -28,6 +30,7 @@ private:
     glm::vec3 lightColor;
 
     Entity *entity;
+    Entity *lightBox;
 };
 
 #endif // GAMESCENE_H
