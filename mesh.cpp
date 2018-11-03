@@ -1,6 +1,6 @@
 #include "mesh.h"
 
-Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices)
+Mesh::Mesh(std::vector<float> vertices, std::vector<unsigned int> indices)
 {
     this->vertices = vertices;
     this->indices = indices;
@@ -43,10 +43,10 @@ void Mesh::init()
          // set the vertex attribute pointers
          // vertex Positions
          glEnableVertexAttribArray(0);
-         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
+         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
          // vertex normals
          glEnableVertexAttribArray(1);
-         glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Normal));
+         glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
 
          glBindVertexArray(0);
 }

@@ -38,23 +38,19 @@ LoadedModel* ModelLoader::Load(QString pathToFile)
     for (int i = 0; i < meshes.size(); i++) {
         aiMesh *aiMesh = meshes[i];
 
-        std::vector<Vertex> vertices;
+        std::vector<float> vertices;
         std::vector<unsigned int> indices;
 
         for(int j = 0; j < aiMesh->mNumVertices; j++) {
-            Vertex vertex;
-            glm::vec3 vector; // we declare a placeholder vector since assimp uses its own vector class that doesn't directly convert to glm's vec3 class so we transfer the data to this placeholder glm::vec3 first.
             // positions
-            vector.x = aiMesh->mVertices[j].x;
-            vector.y = aiMesh->mVertices[j].y;
-            vector.z = aiMesh->mVertices[j].z;
-            vertex.Position = vector;
+            vertices.push_back(aiMesh->mVertices[j].x);
+            vertices.push_back(aiMesh->mVertices[j].y);
+            vertices.push_back(aiMesh->mVertices[j].z);
+
             // normals
-            vector.x = aiMesh->mNormals[j].x;
-            vector.y = aiMesh->mNormals[j].y;
-            vector.z = aiMesh->mNormals[j].z;
-            vertex.Normal = vector;
-            vertices.push_back(vertex);
+            vertices.push_back(aiMesh->mNormals[j].x);
+            vertices.push_back(aiMesh->mNormals[j].y);
+            vertices.push_back(aiMesh->mNormals[j].z);
         }
 
         for(int k = 0; k < aiMesh->mNumFaces; k++) {
