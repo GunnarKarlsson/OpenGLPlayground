@@ -21,7 +21,7 @@ GameScene::~GameScene()
 
 void GameScene::init()
 {
-    lightPos = glm::vec3(500.0, 500.0, -100.0);
+    lightPos = glm::vec3(500.0, 500.0, -1.0);
     lightColor = glm::vec3(1.0, 1.0, 1.0);
 
     assetManager = new AssetManager();
@@ -41,7 +41,7 @@ void GameScene::init()
       glm::vec3 size = glm::vec3(50.0f, 50.0f, 50.0f);
 
     entity = new Cube();
-    entity->initialize(450.0f, 450.0f, -100.0f);
+    entity->initialize(400.0f, 400.0f, -2.0f);
     entity->setVisible(true);
     entity->setTextureId(assetManager->cubeTextureId);
     entity->setSize(size);
@@ -94,16 +94,16 @@ void GameScene::handleEvent(QEvent* event)
         QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
         switch (keyEvent->key()) {
         case Qt::Key_Right:
-            camera->ProcessKeyboard(RIGHT, 0.1);
+            camera->ProcessKeyboard(RIGHT, 1);
             break;
         case Qt::Key_Left:
-            camera->ProcessKeyboard(LEFT, 0.1);
+            camera->ProcessKeyboard(LEFT, 1);
             break;
         case Qt::Key_Up:
-            camera->ProcessKeyboard(FORWARD, 0.1);
+            camera->ProcessKeyboard(FORWARD, 1);
             break;
         case Qt::Key_Down:
-            camera->ProcessKeyboard(BACKWARD, 0.1);
+            camera->ProcessKeyboard(BACKWARD, 1);
             break;
         case Qt::Key_P:
             //TODO
