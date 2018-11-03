@@ -34,7 +34,7 @@ void GameWindow::initializeGL()
     basicShader->compile();
 
     entity = new Entity();
-    entity->initialize(0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+    entity->initialize(0.0f, 0.0f, 0.0f);
     entity->setVisible(true);
     entity->setTextureId(assetManager->cubeTextureId);
 
@@ -80,9 +80,17 @@ bool GameWindow::eventFilter( QObject* object, QEvent* event)
         switch (keyEvent->key()) {
             case Qt::Key_Right:
             //TODO
+            entity->moveRight();
             break;
         case Qt::Key_Left:
             //TODO
+            entity->moveLeft();
+            break;
+        case Qt::Key_Up:
+            entity->moveUp();
+            break;
+        case Qt::Key_Down:
+            entity->moveDown();
             break;
         case Qt::Key_P:
            //TODO

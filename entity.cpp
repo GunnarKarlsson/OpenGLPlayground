@@ -4,8 +4,6 @@ Entity::Entity()
 {
     xPos = 0;
     yPos = 0;
-    dx = 0;
-    dy = 0;
 
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
@@ -42,7 +40,7 @@ void Entity::setVelocity(int velocity)
     this->velocity = velocity;
 }
 
-void Entity::setSize(int size)
+void Entity::setSize(glm::vec3 size)
 {
     this->size =  size;
 }
@@ -58,6 +56,7 @@ void Entity::render(glm::mat4 &view, glm::mat4 &projection, glm::vec3 lightPos, 
     shader->setInt("texture0", 0);
     glm::mat4 model = glm::mat4(1.0);
     model = glm::translate(model, glm::vec3(xPos, yPos, zPos));
+    model = glm::scale(model, size);
     shader->use();
     shader->setMat4("model", model);
     shader->setMat4("view", view);
@@ -74,18 +73,11 @@ void Entity::render(glm::mat4 &view, glm::mat4 &projection, glm::vec3 lightPos, 
    }
 }
 
-void Entity::initialize(float x, float y, float inDx, float inDy)
-{
-    initialize(x, y, -10, inDx, inDy);
-}
-
-void Entity::initialize(float x, float y, float z, float inDx, float inDy)
+void Entity::initialize(float x, float y, float z)
 {
     xPos = x;
     yPos = y;
     zPos = z;
-    dx = inDx;
-    dy = inDy;
     visible = true;
 }
 
@@ -100,35 +92,15 @@ void Entity::moveRight()
     xPos += 1.0;
 }
 
-void Entity::update()
+void Entity::moveUp()
 {
-    xPos += (dx * velocity);
-    yPos += (dy * velocity);
+    yPos += 1.0;
 }
 
-void Entity::update(int minX, int minY, int maxX, int maxY)
+void Entity::moveDown()
 {
-
-    xPos += (dx * velocity);
-    yPos += (dy * velocity);
-
-    if (xPos < (minX + size)) {
-        dx *=-1.0;
-    }
-
-    if (yPos < (minY + size/2)) {
-        dy *= -1.0;
-    }
-
-    if (xPos > (maxX - size)) {
-        dx *=-1.0;
-    }
-
-    if (yPos > (maxY -  size/2)) {
-        dy *= -1.0;
-    }
+    yPos -= 1.0;
 }
-
 
 bool Entity::isVisible()
 {
