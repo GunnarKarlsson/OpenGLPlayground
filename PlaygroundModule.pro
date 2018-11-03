@@ -23,7 +23,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 INCLUDEPATH += \
+            "/Users/gunnarkarlsson/git/glm" \
+            "/Users/gunnarkarlsson/git/assimp/include" \
+            "/Users/gunnarkarlsson/git/assimp/build/include"\
             "/Users/gunnarkarlsson/git/glm"
+
+LIBS += "/Users/gunnarkarlsson/git/assimp/build/code/libassimp.dylib"
 
 SOURCES += \
         main.cpp \
@@ -35,7 +40,8 @@ SOURCES += \
     entity.cpp \
     scene.cpp \
     gamescene.cpp \
-    lightboxshader.cpp
+    lightboxshader.cpp \
+    modelloader.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -49,7 +55,8 @@ HEADERS += \
     entity.h \
     scene.h \
     gamescene.h \
-    lightboxshader.h
+    lightboxshader.h \
+    modelloader.h
 
 FORMS += \
         mainwindow.ui
@@ -58,7 +65,9 @@ DISTFILES += \
     basic.vert \
     basic.frag \
     lightbox.vert \
-    lightbox.frag
+    lightbox.frag \
+    spaceCraft4.obj \
+    spaceCraft4.mtl
 
 RESOURCES += \
     resources.qrc

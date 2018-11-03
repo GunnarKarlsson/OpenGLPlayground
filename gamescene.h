@@ -8,7 +8,7 @@
 #include "lightboxshader.h"
 #include "camera.h"
 #include "entity.h"
-
+#include "modelloader.h"
 
 class GameScene : public Scene
 {
@@ -21,6 +21,7 @@ public:
     void handleEvent(QEvent* event);
 private:
     AssetManager *assetManager;
+    ModelLoader *modelLoader;
     BasicShader *basicShader;
     LightboxShader *lightboxShader;
 

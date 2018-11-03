@@ -12,6 +12,7 @@ GameScene::~GameScene()
     delete basicShader;
     delete camera;
     delete entity;
+    delete modelLoader;
 }
 
 void GameScene::init()
@@ -39,6 +40,9 @@ void GameScene::init()
     lightBox->initialize(lightPos.x, lightPos.y, lightPos.z);
     lightBox->setVisible(true);
     lightBox->setSize(glm::vec3(0.2f, 0.2f, 0.2f));
+
+    modelLoader = new ModelLoader();
+    modelLoader->Load("/Users/gunnarkarlsson/git/PlaygroundModule/spaceCraft4.obj");
 
     glEnable(GL_DEPTH_TEST);
 }
