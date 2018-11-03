@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui opengl
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -22,14 +22,33 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+INCLUDEPATH += \
+            "/Users/gunnarkarlsson/git/glm"
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    gamewindow.cpp \
+    assetmanager.cpp \
+    shader.cpp \
+    basicshader.cpp
 
 HEADERS += \
         mainwindow.h \
-    stb_image.h
+    stb_image.h \
+    gamewindow.h \
+    assetmanager.h \
+    common.h \
+    camera.h \
+    shader.h \
+    basicshader.h
 
 FORMS += \
         mainwindow.ui
+
+DISTFILES += \
+    basic.vert \
+    basic.frag
+
+RESOURCES += \
+    resources.qrc
