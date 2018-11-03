@@ -40,7 +40,7 @@ bool ModelLoader::Load(QString pathToFile) {
 
         return true;
     } else {
-        qDebug() << "No meshed found" << endl;;
+        qDebug() << "No meshes found" << endl;;
         return false;
     }
 }

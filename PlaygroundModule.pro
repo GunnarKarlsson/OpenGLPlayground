@@ -41,7 +41,9 @@ SOURCES += \
     gamescene.cpp \
     lightboxshader.cpp \
     modelloader.cpp \
-    cube.cpp
+    cube.cpp \
+    loadedmodel.cpp \
+    mesh.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -56,7 +58,9 @@ HEADERS += \
     gamescene.h \
     lightboxshader.h \
     modelloader.h \
-    cube.h
+    cube.h \
+    loadedmodel.h \
+    mesh.h
 
 FORMS += \
         mainwindow.ui
