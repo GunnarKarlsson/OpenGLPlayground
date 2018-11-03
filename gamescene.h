@@ -35,7 +35,8 @@ private:
 
     Cube *entity;
     Cube *lightBox;
-    LoadedModel *loadedModel;
+    LoadedModel *spaceShip;
+    LoadedModel *largeRock;
 };
 
 #endif // GAMESCENE_H

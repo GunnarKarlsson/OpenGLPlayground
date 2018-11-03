@@ -12,7 +12,7 @@ GameScene::~GameScene()
     delete basicShader;
     delete camera;
     delete entity;
-    delete loadedModel;
+    delete spaceShip;
     delete lightBox;
     delete modelLoader;
     delete lightboxShader;
@@ -49,7 +49,11 @@ void GameScene::init()
     lightBox->setSize(glm::vec3(0.2f, 0.2f, 0.2f));
 
     modelLoader = new ModelLoader();
-    loadedModel = modelLoader->Load("/Users/gunnarkarlsson/git/PlaygroundModule/spaceCraft4.obj");
+    spaceShip = modelLoader->Load("/Users/gunnarkarlsson/git/PlaygroundModule/spaceCraft4.obj");
+    spaceShip->setPosition(3.0, 0.0, -1.0);
+
+    largeRock = modelLoader->Load("/Users/gunnarkarlsson/git/PlaygroundModule/rockFormationLarge.obj");
+    largeRock->setPosition(2.0f, 0.0f, -2.0f);
 
     glEnable(GL_DEPTH_TEST);
 }
@@ -69,7 +73,9 @@ void GameScene::render()
 
     entity->render(view, projection, lightPos, lightColor, basicShader);
 
-    loadedModel->render(view, projection, lightPos, lightColor, loadedModelShader);
+    spaceShip->render(view, projection, lightPos, lightColor, loadedModelShader);
+
+    largeRock->render(view, projection, lightPos, lightColor, loadedModelShader);
 
     lightBox->render(view, projection, lightPos, lightColor, lightboxShader);
 }

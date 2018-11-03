@@ -5,9 +5,9 @@ Mesh::Mesh(std::vector<float> vertices, std::vector<unsigned int> indices, glm::
     this->vertices = vertices;
     this->indices = indices;
 
-    xPos = 3.0f;
+    xPos = 0.0f;
     yPos = 0.0f;
-    zPos = 1.0f;
+    zPos = 0.0f;
 
     size = glm::vec3(0.1f, 0.1f, 0.1f);
 
@@ -49,6 +49,13 @@ void Mesh::init()
          glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
 
          glBindVertexArray(0);
+}
+
+void Mesh::setPosition(float x, float y, float z)
+{
+    xPos = x;
+    yPos = y;
+    zPos = z;
 }
 
 void Mesh::render(glm::mat4 &view, glm::mat4 &projection, glm::vec3 lightPos, glm::vec3 lightColor, Shader *shader)

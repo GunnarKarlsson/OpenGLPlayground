@@ -11,6 +11,7 @@ public:
     LoadedModel();
     ~LoadedModel();
     void addMesh(Mesh *mesh);
+    void setPosition(float x, float y, float z);
     void render(glm::mat4 &view, glm::mat4 &projection, glm::vec3 lightPos, glm::vec3 lightColor, Shader *shader);
 private:
     std::vector<Mesh*> meshes;

@@ -75,6 +75,7 @@ LoadedModel* ModelLoader::Load(QString pathToFile)
         Mesh *mesh = new Mesh(vertices, indices, diffuseColor);
         loadedModel->addMesh(mesh);
     }
+    meshes.clear();
 
     return loadedModel;
 }

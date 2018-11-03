@@ -75,7 +75,9 @@ DISTFILES += \
     spaceCraft4.obj \
     spaceCraft4.mtl \
     loadedmodel.vert \
-    loadedmodel.frag
+    loadedmodel.frag \
+    rockFormationLarge.obj \
+    rockFormationLarge.mtl
 
 RESOURCES += \
     resources.qrc
