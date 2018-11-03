@@ -21,7 +21,7 @@ GameScene::~GameScene()
 
 void GameScene::init()
 {
-    lightPos = glm::vec3(3.0, 3.0, 1.0);
+    lightPos = glm::vec3(500.0, 500.0, -100.0);
     lightColor = glm::vec3(1.0, 1.0, 1.0);
 
     assetManager = new AssetManager();
@@ -38,15 +38,19 @@ void GameScene::init()
     loadedModelShader = new LoadedModelShader();
     loadedModelShader->compile();
 
+      glm::vec3 size = glm::vec3(50.0f, 50.0f, 50.0f);
+
     entity = new Cube();
-    entity->initialize(0.0f, 0.0f, 0.0f);
+    entity->initialize(450.0f, 450.0f, -100.0f);
     entity->setVisible(true);
     entity->setTextureId(assetManager->cubeTextureId);
+    entity->setSize(size);
 
     lightBox = new Cube();
     lightBox->initialize(lightPos.x, lightPos.y, lightPos.z);
     lightBox->setVisible(true);
-    lightBox->setSize(glm::vec3(0.2f, 0.2f, 0.2f));
+
+    lightBox->setSize(size);
 
     modelLoader = new ModelLoader();
     spaceShip = modelLoader->Load("/Users/gunnarkarlsson/git/PlaygroundModule/spaceCraft4.obj");
