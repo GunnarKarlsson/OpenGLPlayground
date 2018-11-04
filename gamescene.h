@@ -37,6 +37,9 @@ private:
     Cube *lightBox;
     LoadedModel *spaceShip;
     LoadedModel *largeRock;
+
+    int lastMouseX;
+    int lastMouseY;
 };
 
 #endif // GAMESCENE_H

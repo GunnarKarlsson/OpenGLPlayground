@@ -83,6 +83,37 @@ void GameScene::render()
 void GameScene::handleEvent(QEvent* event)
 {
     switch(event->type()) {
+
+    case QEvent :: MouseButtonRelease: {
+        lastMouseX = 0;
+        lastMouseY = 0;
+        break;
+    }
+
+    case QEvent::MouseButtonPress: {
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
+        if(mouseEvent->buttons() == Qt::LeftButton) {
+            lastMouseX = mouseEvent->x();
+            lastMouseY = mouseEvent->y();
+        }
+        break;
+    }
+
+    case QEvent :: MouseMove: {
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
+        if(mouseEvent->buttons() == Qt::LeftButton) {
+
+            float dx = mouseEvent->x() - lastMouseX;
+            float dy = mouseEvent->y() - lastMouseY;
+
+            camera->ProcessMouseMovement(dx, -dy);
+
+            lastMouseX = mouseEvent->x();
+            lastMouseY = mouseEvent->y();
+        }
+        break;
+    }
+
     case QEvent::KeyPress:{
         QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
         switch (keyEvent->key()) {
