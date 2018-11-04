@@ -10,6 +10,8 @@
 #include "camera.h"
 #include "cube.h"
 #include "modelloader.h"
+#include "skybox.h"
+#include "skyboxshader.h"
 
 class GameScene : public Scene
 {
@@ -37,6 +39,8 @@ private:
     Cube *lightBox;
     LoadedModel *spaceShip;
     LoadedModel *largeRock;
+
+    Skybox *skybox;
 
     int lastMouseX;
     int lastMouseY;

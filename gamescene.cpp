@@ -55,6 +55,9 @@ void GameScene::init()
     largeRock = modelLoader->Load("/Users/gunnarkarlsson/git/PlaygroundModule/rockFormationLarge.obj");
     largeRock->setPosition(2.0f, 0.0f, -2.0f);
 
+    skybox = new Skybox();
+    skybox->setTextureId(assetManager->skyboxTextureId);
+
     glEnable(GL_DEPTH_TEST);
 }
 
@@ -78,6 +81,9 @@ void GameScene::render()
     largeRock->render(view, projection, lightPos, lightColor, loadedModelShader);
 
     lightBox->render(view, projection, lightPos, lightColor, lightboxShader);
+
+    glm::mat4 skyboxView = glm::mat4(glm::mat3(camera->GetViewMatrix())); // remove translation from the view matrix
+    skybox->update(skyboxView, projection);//TODO: rename to skybox->render
 }
 
 void GameScene::handleEvent(QEvent* event)

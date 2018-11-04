@@ -11,9 +11,11 @@ public:
     void loadAssets();
 
     unsigned int cubeTextureId;
+    unsigned int skyboxTextureId;
 
 private:
     void loadTexture(const char* path, unsigned int &textureId);
+    unsigned int loadSkyboxTextures(std::vector<std::string> faces);
 };
 
 #endif // ASSETMANAGER_H

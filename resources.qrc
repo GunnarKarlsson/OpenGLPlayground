@@ -6,5 +6,7 @@
         <file>lightbox.frag</file>
         <file>loadedmodel.vert</file>
         <file>loadedmodel.frag</file>
+        <file>skybox.vert</file>
+        <file>skybox.frag</file>
     </qresource>
 </RCC>

@@ -31,7 +31,9 @@ SOURCES += \
     cube.cpp \
     loadedmodel.cpp \
     mesh.cpp \
-    loadedmodelshader.cpp
+    loadedmodelshader.cpp \
+    skybox.cpp \
+    skyboxshader.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -49,7 +51,9 @@ HEADERS += \
     cube.h \
     loadedmodel.h \
     mesh.h \
-    loadedmodelshader.h
+    loadedmodelshader.h \
+    skybox.h \
+    skyboxshader.h
 
 FORMS += \
         mainwindow.ui
@@ -64,7 +68,15 @@ DISTFILES += \
     loadedmodel.vert \
     loadedmodel.frag \
     rockFormationLarge.obj \
-    rockFormationLarge.mtl
+    rockFormationLarge.mtl \
+    SKY_BACK.png \
+    SKY_DOWN.png \
+    SKY_FRONT.png \
+    SKY_LEFT.png \
+    SKY_RIGHT.png \
+    SKY_UP.png \
+    skybox.vert \
+    skybox.frag
 
 RESOURCES += \
     resources.qrc

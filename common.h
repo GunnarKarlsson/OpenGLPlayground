@@ -15,7 +15,7 @@
 #define SCREEN_WIDTH 640
 #define SCREEN_HEIGHT 640
 #define NEAR_LIMIT 0.01
-#define FAR_LIMIT 100.0
+#define FAR_LIMIT 1000.0
 
 #define LOGD(...) ( qDebug() << __VA_ARGS__)
 #define LOGI(...) ( qDebug() << __VA_ARGS__)
