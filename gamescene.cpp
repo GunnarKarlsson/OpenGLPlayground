@@ -54,6 +54,7 @@ void GameScene::init()
 
     largeRock = modelLoader->Load("/Users/gunnarkarlsson/git/PlaygroundModule/rockFormationLarge.obj");
     largeRock->setPosition(2.0f, 0.0f, -2.0f);
+    largeRock->setScale(2.0f, 2.0f, 2.0f);
 
     skybox = new Skybox();
     skybox->setTextureId(assetManager->skyboxTextureId);

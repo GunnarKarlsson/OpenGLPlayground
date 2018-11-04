@@ -9,6 +9,10 @@ Mesh::Mesh(std::vector<float> vertices, std::vector<unsigned int> indices, glm::
     yPos = 0.0f;
     zPos = 0.0f;
 
+    xScale = SCALE_MODIFIER;
+    yScale = SCALE_MODIFIER;
+    zScale = SCALE_MODIFIER;
+
     size = glm::vec3(0.1f, 0.1f, 0.1f);
 
     objectColor = color;
@@ -58,11 +62,18 @@ void Mesh::setPosition(float x, float y, float z)
     zPos = z;
 }
 
+void Mesh::setScale(float x, float y, float z)
+{
+    xScale = x * SCALE_MODIFIER;
+    yScale = y * SCALE_MODIFIER;
+    zScale = z * SCALE_MODIFIER;
+}
+
 void Mesh::render(glm::mat4 &view, glm::mat4 &projection, glm::vec3 lightPos, glm::vec3 lightColor, Shader *shader)
 {
     glm::mat4 model = glm::mat4(1.0);
     model = glm::translate(model, glm::vec3(xPos, yPos, zPos));
-    model = glm::scale(model, size);
+    model = glm::scale(model, glm::vec3(xScale, yScale, zScale));
     shader->use();
     shader->setMat4("model", model);
     shader->setMat4("view", view);
