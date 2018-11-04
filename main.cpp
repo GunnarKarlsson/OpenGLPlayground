@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
     format.setDepthBufferSize(24);
     format.setVersion(4,2);
     format.setProfile(QSurfaceFormat::CoreProfile);
+    format.setSamples(4);
     QSurfaceFormat::setDefaultFormat(format);
 
     GameWindow window;
