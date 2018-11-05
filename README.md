@@ -13,4 +13,4 @@ Dependencies;
 + assimp
 + stbi
 
-![Screen shots](https://github.com/GunnarKarlsson/OpenGLplayground/raw/master/ss.png)
+![Screen shots](https://github.com/GunnarKarlsson/OpenGLplayground/raw/master/ss1.png)
