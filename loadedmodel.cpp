@@ -22,6 +22,13 @@ void LoadedModel::setPosition(float x, float y, float z)
     }
 }
 
+void LoadedModel::setRotation(float xDegrees, float yDegrees, float zDegrees)
+{
+    for (int i = 0; i < meshes.size(); i++) {
+        meshes[i]->setRotation(xDegrees, yDegrees, zDegrees);
+    }
+}
+
 void LoadedModel::setScale(float x, float y, float z) {
     for (int i = 0; i < meshes.size(); i++) {
         meshes[i]->setScale(x, y, z);

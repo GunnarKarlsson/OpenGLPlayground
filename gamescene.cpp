@@ -39,7 +39,7 @@ void GameScene::init()
     loadedModelShader->compile();
 
     entity = new Cube();
-    entity->initialize(0.0f, 0.0f, 0.0f);
+    entity->initialize(-1.0f, 1.0f, 0.0f);
     entity->setVisible(true);
     entity->setTextureId(assetManager->cubeTextureId);
 
@@ -50,11 +50,12 @@ void GameScene::init()
 
     modelLoader = new ModelLoader();
     spaceShip = modelLoader->Load("/Users/gunnarkarlsson/git/PlaygroundModule/spaceCraft4.obj");
-    spaceShip->setPosition(3.0, 0.0, -1.0);
+    spaceShip->setPosition(4.0, 0.0, -1.0);
+    spaceShip->setRotation(0.0f, 180.0f, 0.0f);
 
     largeRock = modelLoader->Load("/Users/gunnarkarlsson/git/PlaygroundModule/rockFormationLarge.obj");
-    largeRock->setPosition(2.0f, 0.0f, -2.0f);
-    largeRock->setScale(2.0f, 2.0f, 2.0f);
+    largeRock->setPosition(3.0f, -2.0f, -4.0f);
+    largeRock->setScale(5.0f, 5.0f, 5.0f);
 
     skybox = new Skybox();
     skybox->setTextureId(assetManager->skyboxTextureId);
