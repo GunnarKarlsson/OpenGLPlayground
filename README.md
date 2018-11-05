@@ -4,8 +4,8 @@ Base project for experimenting with OpenGL in Qt. Contains some basic things to 
 + basic light shader with flat shading
 + textured cube
 + light source represented by small cube
-+ Multi-mesh model loading.
-+ Skybox
++ obj file model loading.
++ skybox
 + mouse and keyboard input to move camera
 
 Dependencies;
