@@ -1,6 +1,6 @@
 # OpenGLPlayground
 
-Base project for experimenting with OpenGL in Qt. Contains some basic things to get started:
+Starter-pack for experimenting with OpenGL in Qt. Contains some basic elements to get up and running:
 + light shader with flat shading
 + textured cube
 + light source represented by small cube
@@ -9,9 +9,9 @@ Base project for experimenting with OpenGL in Qt. Contains some basic things to 
 + mouse and keyboard input to move camera
 
 Dependencies;
-+ glm
-+ assimp
-+ stbi
++ glm https://glm.g-truc.net
++ assimp http://www.assimp.org/
++ stb_image https://github.com/nothings/stb
 
 Other:
 + models from kenney: https://kenney.nl/assets?q=3d
