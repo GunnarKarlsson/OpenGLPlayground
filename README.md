@@ -18,10 +18,11 @@ Other:
 + skybox from customapmakers http://www.custommapmakers.org/skyboxes.php
 
 Project structure:
-├── your_dir/
-│   ├── OpenGLPlayground
-│   ├── glm
-│   ├── assimp
+
+your_dir/
+├── OpenGLPlayground/
+├── glm/
+├── assimp/
 
 You need to build assimp after download
 
