@@ -17,4 +17,12 @@ Other:
 + models from kenney: https://kenney.nl
 + skybox from customapmakers http://www.custommapmakers.org/skyboxes.php
 
+Project structure:
+├── your_dir/
+│   ├── OpenGLPlayground
+│   ├── glm
+│   ├── assimp
+
+You need to build assimp after download
+
 ![Screen shots](https://github.com/GunnarKarlsson/OpenGLplayground/raw/master/ss1.png)
