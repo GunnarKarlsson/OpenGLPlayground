@@ -1,7 +1,7 @@
 # OpenGLPlayground
 
 Base project for experimenting with OpenGL in Qt. Contains some basic things to get started:
-+ basic light shader with flat shading
++ light shader with flat shading
 + textured cube
 + light source represented by small cube
 + obj file model loading.
