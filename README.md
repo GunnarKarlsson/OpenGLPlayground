@@ -13,4 +13,7 @@ Dependencies;
 + assimp
 + stbi
 
+Other:
++ models from kenney: https://kenney.nl/assets?q=3d
+
 ![Screen shots](https://github.com/GunnarKarlsson/OpenGLplayground/raw/master/ss1.png)
