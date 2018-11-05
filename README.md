@@ -14,6 +14,7 @@ Dependencies;
 + stb_image https://github.com/nothings/stb
 
 Other:
-+ models from kenney: https://kenney.nl/assets?q=3d
++ models from kenney: https://kenney.nl
++ skybox from customapmakers http://www.custommapmakers.org/skyboxes.php
 
 ![Screen shots](https://github.com/GunnarKarlsson/OpenGLplayground/raw/master/ss1.png)
