@@ -23,7 +23,8 @@ your_dir/
 ├── OpenGLPlayground/
 ├── glm/
 ├── assimp/
+├── freetype/
 ```
-You need to build assimp after download
+Build assimp and freetype locally after download
 
 ![Screen shots](https://github.com/GunnarKarlsson/OpenGLplayground/raw/master/ss1.png)

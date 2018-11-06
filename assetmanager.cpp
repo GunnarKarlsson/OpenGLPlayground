@@ -3,16 +3,27 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
+#include <ft2build.h>
+#include FT_FREETYPE_H
+
 AssetManager::AssetManager(){}
 
 AssetManager::~AssetManager() {}
 
 void AssetManager::loadAssets()
 {
-    const char * filePathCube = "/Users/gunnarkarlsson/git/PlaygroundModule/cube.png";
+    FT_Library ft;
+    if (FT_Init_FreeType(&ft))
+        qDebug() << "ERROR::FREETYPE: Could not init FreeType Library" << endl;
+
+    FT_Face face;
+    if (FT_New_Face(ft, "fonts/arial.ttf", 0, &face))
+        qDebug() << "ERROR::FREETYPE: Failed to load font" << endl;
+
+    const char * filePathCube = "/Users/gunnarkarlsson/git/OpenGLPlayground/cube.png";
     loadTexture(filePathCube, cubeTextureId);
 
-    std::string basePath = "/Users/gunnarkarlsson/QtProjects/tuts/Breakout/";
+    std::string basePath = "/Users/gunnarkarlsson//git/OpenGLPlayground/";
     std::string SKY_LEFT = basePath + "SKY_LEFT.png";
     std::string SKY_RIGHT = basePath + "SKY_RIGHT.png";
     std::string SKY_UP = basePath + "SKY_UP.png";

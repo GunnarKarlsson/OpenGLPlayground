@@ -13,9 +13,11 @@ INCLUDEPATH += \
             "$$_PRO_FILE_PWD_/../glm" \
             "$$_PRO_FILE_PWD_/../assimp/include" \
             "$$_PRO_FILE_PWD_/../assimp/build/include"\
-            "$$_PRO_FILE_PWD_/../glm"
+            "$$_PRO_FILE_PWD_/../glm"\
+            "$$_PRO_FILE_PWD_/../freetype/include"
 
 LIBS += "$$_PRO_FILE_PWD_/../assimp/build/code/libassimp.dylib"
+LIBS += "/usr/local/lib/libfreetype.dylib"
 
 SOURCES += \
         main.cpp \
