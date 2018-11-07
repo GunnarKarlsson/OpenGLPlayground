@@ -94,8 +94,7 @@ void GameScene::render()
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    //glm::mat4 projection = glm::ortho(0.0f, 800.0f, 0.0f, 600.0f);
-    textRenderer->renderText(assetManager, textShader, "Hello", 25.0f, 25.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    textRenderer->renderText(assetManager, textShader, "OpenGL Playground", 10.0f, ((float)SCREEN_HEIGHT - 50.0f), 1.0f, glm::vec3(0.0f, 1.0f, 1.0f));
 }
 
 void GameScene::handleEvent(QEvent* event)
