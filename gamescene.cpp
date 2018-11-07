@@ -38,6 +38,9 @@ void GameScene::init()
     loadedModelShader = new LoadedModelShader();
     loadedModelShader->compile();
 
+    textShader = new TextShader();
+    textShader->compile();
+
     entity = new Cube();
     entity->initialize(-1.0f, 1.0f, 0.0f);
     entity->setVisible(true);

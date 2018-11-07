@@ -35,7 +35,8 @@ SOURCES += \
     mesh.cpp \
     loadedmodelshader.cpp \
     skybox.cpp \
-    skyboxshader.cpp
+    skyboxshader.cpp \
+    textshader.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -55,7 +56,8 @@ HEADERS += \
     mesh.h \
     loadedmodelshader.h \
     skybox.h \
-    skyboxshader.h
+    skyboxshader.h \
+    textshader.h
 
 FORMS += \
         mainwindow.ui
@@ -78,7 +80,10 @@ DISTFILES += \
     SKY_RIGHT.png \
     SKY_UP.png \
     skybox.vert \
-    skybox.frag
+    skybox.frag \
+    arial.ttf \
+    text.vert \
+    text.frag
 
 RESOURCES += \
     resources.qrc

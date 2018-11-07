@@ -12,6 +12,7 @@
 #include "modelloader.h"
 #include "skybox.h"
 #include "skyboxshader.h"
+#include "textshader.h"
 
 class GameScene : public Scene
 {
@@ -29,6 +30,7 @@ private:
     BasicShader *basicShader;
     LightboxShader *lightboxShader;
     LoadedModelShader *loadedModelShader;
+    TextShader *textShader;
 
     Camera *camera;
 
