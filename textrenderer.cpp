@@ -15,9 +15,7 @@ TextRenderer::TextRenderer()
 
 void TextRenderer::renderText(AssetManager *am, Shader *shader, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color)
 {
-    float w = (float)SCREEN_WIDTH;
-    float h = (float)SCREEN_WIDTH;
-    glm::mat4 projection = glm::ortho(0.0f, w, 0.0f, w);
+    glm::mat4 projection = glm::ortho(0.0f, (float)SCREEN_WIDTH, 0.0f, (float)SCREEN_HEIGHT);
     // Activate corresponding render state
     shader->use();
     shader->setMat4("projection", projection);
