@@ -36,7 +36,8 @@ SOURCES += \
     loadedmodelshader.cpp \
     skybox.cpp \
     skyboxshader.cpp \
-    textshader.cpp
+    textshader.cpp \
+    textrenderer.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -57,7 +58,8 @@ HEADERS += \
     loadedmodelshader.h \
     skybox.h \
     skyboxshader.h \
-    textshader.h
+    textshader.h \
+    textrenderer.h
 
 FORMS += \
         mainwindow.ui

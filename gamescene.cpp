@@ -63,6 +63,8 @@ void GameScene::init()
     skybox = new Skybox();
     skybox->setTextureId(assetManager->skyboxTextureId);
 
+    textRenderer = new TextRenderer();
+
     glEnable(GL_DEPTH_TEST);
 }
 
@@ -89,6 +91,11 @@ void GameScene::render()
 
     glm::mat4 skyboxView = glm::mat4(glm::mat3(camera->GetViewMatrix())); // remove translation from the view matrix
     skybox->update(skyboxView, projection);//TODO: rename to skybox->render
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    //glm::mat4 projection = glm::ortho(0.0f, 800.0f, 0.0f, 600.0f);
+    textRenderer->renderText(assetManager, textShader, "Hello", 25.0f, 25.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 }
 
 void GameScene::handleEvent(QEvent* event)

@@ -13,6 +13,7 @@
 #include "skybox.h"
 #include "skyboxshader.h"
 #include "textshader.h"
+#include "textrenderer.h"
 
 class GameScene : public Scene
 {
@@ -43,6 +44,8 @@ private:
     LoadedModel *largeRock;
 
     Skybox *skybox;
+
+    TextRenderer *textRenderer;
 
     int lastMouseX;
     int lastMouseY;
