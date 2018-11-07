@@ -22,7 +22,7 @@ void AssetManager::loadAssets()
     }
 
     FT_Face face;
-    const char* fontPath = "/Users/gunnarkarlsson/git/OpenGLPlayground/arial.ttf";
+    const char* fontPath = "/Users/gunnarkarlsson/git/OpenGLPlayground/aero.ttf";
     if (FT_New_Face(ft, fontPath, 0, &face)) {
         qDebug() << "ERROR::FREETYPE: Failed to load font" << endl;
     } else {
