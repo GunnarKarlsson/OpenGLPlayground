@@ -175,6 +175,7 @@ void AssetManager::loadLevelPalette() {
             QRgb rgb = tmp.pixelColor(x, y).rgb();
             QString valueInHex= QString("%1").arg(rgb , 0, 16);
             qDebug() << valueInHex;
+            paletteMap.insert ( std::pair<QString,int>(valueInHex,x) );
         }
     }
 }
