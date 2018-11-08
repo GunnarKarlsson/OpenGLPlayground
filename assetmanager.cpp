@@ -106,6 +106,7 @@ void AssetManager::loadAssets()
     skyboxTextureId = loadSkyboxTextures(faces);
 
     loadLevelPalette();
+    loadLevel();
 }
 
 void AssetManager::loadTexture(const char* filePath, unsigned int &textureId)
@@ -169,13 +170,35 @@ void AssetManager::loadLevelPalette() {
     qDebug() << "imageWidth:  " << tmp.width();
     qDebug() << "imageHeigth: " << tmp.height();
 
-
     for(int y = 0; y < tmp.height(); y++) {
         for(int x= 0; x < tmp.width(); x++) {
             QRgb rgb = tmp.pixelColor(x, y).rgb();
             QString valueInHex= QString("%1").arg(rgb , 0, 16);
             qDebug() << valueInHex;
             paletteMap.insert ( std::pair<QString,int>(valueInHex,x) );
+        }
+    }
+}
+
+void AssetManager::loadLevel() {
+    QPixmap pixmap(":/Images/map001.png");
+
+    QImage tmp = pixmap.toImage();
+
+    qDebug() << "imageWidth:  " << tmp.width();
+    qDebug() << "imageHeigth: " << tmp.height();
+
+    for(int y = 0; y < tmp.height(); y++) {
+        for(int x= 0; x < tmp.width(); x++) {
+            QRgb rgb = tmp.pixelColor(x, y).rgb();
+            QString valueInHex= QString("%1").arg(rgb , 0, 16);
+            qDebug() << valueInHex;
+
+            int value = paletteMap.at(valueInHex);
+
+            intPair xy = intPair(x, y);
+
+            levelMap.insert(std::pair<intPair,int>(xy,value));
         }
     }
 }

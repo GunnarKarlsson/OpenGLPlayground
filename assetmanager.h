@@ -5,6 +5,8 @@
 #include "common.h"
 #include <map>
 
+typedef std::pair<int,int> intPair;
+
 class AssetManager
 {
 public:
@@ -12,6 +14,7 @@ public:
     ~AssetManager();
     void loadAssets();
     void loadLevelPalette();
+    void loadLevel();
 
     unsigned int cubeTextureId;
     unsigned int skyboxTextureId;
@@ -21,6 +24,8 @@ private:
     void loadTexture(const char* path, unsigned int &textureId);
     unsigned int loadSkyboxTextures(std::vector<std::string> faces);
     std::map<QString, int> paletteMap;
+
+    std::map<intPair, int> levelMap;
 };
 
 #endif // ASSETMANAGER_H
