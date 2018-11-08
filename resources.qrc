@@ -11,4 +11,8 @@
         <file>text.vert</file>
         <file>text.frag</file>
     </qresource>
+    <qresource prefix="/Images">
+        <file>map001.png</file>
+        <file>palette.png</file>
+    </qresource>
 </RCC>
