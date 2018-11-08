@@ -10,6 +10,7 @@ public:
     AssetManager();
     ~AssetManager();
     void loadAssets();
+    void loadLevelPalette();
 
     unsigned int cubeTextureId;
     unsigned int skyboxTextureId;

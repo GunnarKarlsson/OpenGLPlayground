@@ -6,6 +6,9 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
+#include <QPixmap>
+#include <QRgb>
+
 AssetManager::AssetManager(){}
 
 AssetManager::~AssetManager() {}
@@ -101,6 +104,8 @@ void AssetManager::loadAssets()
                 SKY_BACK
             };
     skyboxTextureId = loadSkyboxTextures(faces);
+
+    loadLevelPalette();
 }
 
 void AssetManager::loadTexture(const char* filePath, unsigned int &textureId)
@@ -154,6 +159,24 @@ unsigned int AssetManager::loadSkyboxTextures(std::vector<std::string> faces) {
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 
     return textureID;
+}
+
+void AssetManager::loadLevelPalette() {
+    QPixmap pixmap(":/Images/palette.png");
+
+    QImage tmp = pixmap.toImage();
+
+    qDebug() << "imageWidth:  " << tmp.width();
+    qDebug() << "imageHeigth: " << tmp.height();
+
+
+    for(int y = 0; y < tmp.height(); y++) {
+        for(int x= 0; x < tmp.width(); x++) {
+            QRgb rgb = tmp.pixelColor(x, y).rgb();
+            QString valueInHex= QString("%1").arg(rgb , 0, 16);
+            qDebug() << valueInHex;
+        }
+    }
 }
 
 

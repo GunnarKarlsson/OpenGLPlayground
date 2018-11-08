@@ -48,8 +48,8 @@ void Shader::compile(const char* vertPath, const char* fragPath)
     loadShader(fragPath, fragStr);
     const char* fragSource = fragStr.c_str();
 
-    qDebug() << "vert source: " << vertSource << endl;
-    qDebug() << "frag source: " << fragSource << endl;
+    //qDebug() << "vert source: " << vertSource << endl;
+    //qDebug() << "frag source: " << fragSource << endl;
 
     vertexShaderId = glCreateShader(GL_VERTEX_SHADER);
     fragmentShaderId = glCreateShader(GL_FRAGMENT_SHADER);
@@ -107,7 +107,7 @@ void Shader::loadShader(const char* filePath, std::string &source)
     }
     QTextStream in(&file);
     QString s = in.readAll();
-    qDebug() << "s: " << s << endl;
+    //qDebug() << "s: " << s << endl;
     source = s.toStdString();
 }
 
