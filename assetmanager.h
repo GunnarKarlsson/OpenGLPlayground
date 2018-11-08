@@ -20,12 +20,13 @@ public:
     unsigned int skyboxTextureId;
 
     std::map<GLchar, Character> characters;
+    std::map<intPair, int> levelMap;
+    int levelWidth = 0;
+    int levelDepth = 0;
 private:
     void loadTexture(const char* path, unsigned int &textureId);
     unsigned int loadSkyboxTextures(std::vector<std::string> faces);
     std::map<QString, int> paletteMap;
-
-    std::map<intPair, int> levelMap;
 };
 
 #endif // ASSETMANAGER_H

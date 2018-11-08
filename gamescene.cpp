@@ -40,11 +40,29 @@ void GameScene::init()
 
     textShader = new TextShader();
     textShader->compile();
-
+/*
     entity = new Cube();
     entity->initialize(-1.0f, 1.0f, 0.0f);
     entity->setVisible(true);
     entity->setTextureId(assetManager->cubeTextureId);
+*/
+
+    std::map<intPair, int> map = assetManager->levelMap;
+    for (int x = 0; x < assetManager->levelWidth; x++) {
+        for (int z = 0; z < assetManager->levelDepth; z++) {
+            int value = map.at(intPair(x,z));
+            if (value != 0) {
+                qDebug() << "cube at " << x << " " << z;
+                Cube *cube = new Cube();
+                float xPos = (float)x;
+                float zPos = assetManager->levelDepth - (float)z;
+                cube->initialize(xPos, -1.0f, -zPos);
+                cube->setVisible(true);
+                cube->setTextureId(assetManager->cubeTextureId);
+                cubes.push_back(cube);
+            }
+        }
+    }
 
     lightBox = new Cube();
     lightBox->initialize(lightPos.x, lightPos.y, lightPos.z);
@@ -81,7 +99,11 @@ void GameScene::render()
     glm::mat4 view = camera->GetViewMatrix();
     glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, (float)NEAR_LIMIT, (float)FAR_LIMIT);
 
-    entity->render(view, projection, lightPos, lightColor, basicShader);
+    //entity->render(view, projection, lightPos, lightColor, basicShader);
+
+    for (int i = 0; i < cubes.size(); i++) {
+        cubes[i]->render(view, projection, lightPos, lightColor, basicShader);
+    }
 
     spaceShip->render(view, projection, lightPos, lightColor, loadedModelShader);
 

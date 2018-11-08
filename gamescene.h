@@ -38,6 +38,7 @@ private:
     glm::vec3 lightPos;
     glm::vec3 lightColor;
 
+    std::vector<Cube*> cubes;
     Cube *entity;
     Cube *lightBox;
     LoadedModel *spaceShip;
