@@ -85,7 +85,8 @@ DISTFILES += \
     skybox.frag \
     arial.ttf \
     text.vert \
-    text.frag
+    text.frag \
+    README.md
 
 RESOURCES += \
     resources.qrc

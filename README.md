@@ -7,11 +7,13 @@ Starter-pack for experimenting with OpenGL in Qt. Contains some basic elements t
 + obj file model loading.
 + skybox
 + mouse and keyboard input to move camera
++ font rendering
 
 Dependencies;
 + glm https://glm.g-truc.net
 + assimp http://www.assimp.org/
 + stb_image https://github.com/nothings/stb
++ freefont
 
 Other:
 + models from kenney: https://kenney.nl
