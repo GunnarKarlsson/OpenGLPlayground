@@ -29,4 +29,5 @@ your_dir/
 ```
 Build assimp and freetype locally after download
 
+Screenshot
 ![Screen shots](https://github.com/GunnarKarlsson/OpenGLplayground/raw/master/ss1.png)
