@@ -9,6 +9,8 @@ Starter-pack for experimenting with OpenGL in Qt. Contains some basic elements t
 + mouse and keyboard input to move camera
 + font rendering
 
+![Screen shots](https://github.com/GunnarKarlsson/OpenGLplayground/raw/master/ss1.png)
+
 Dependencies;
 + glm https://glm.g-truc.net
 + assimp http://www.assimp.org/
@@ -27,7 +29,3 @@ your_dir/
 ├── assimp/
 ├── freetype/
 ```
-Build assimp and freetype locally after download
-
-Screenshot
-![Screen shots](https://github.com/GunnarKarlsson/OpenGLplayground/raw/master/ss1.png)
