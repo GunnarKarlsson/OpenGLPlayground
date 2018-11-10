@@ -15,7 +15,7 @@ Dependencies;
 + glm https://glm.g-truc.net
 + assimp http://www.assimp.org/
 + stb_image https://github.com/nothings/stb
-+ freefont
++ freetype https://www.freetype.org/
 
 Other:
 + models from kenney: https://kenney.nl
