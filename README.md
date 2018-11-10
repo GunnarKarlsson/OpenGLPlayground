@@ -20,6 +20,7 @@ Dependencies;
 Other:
 + models from kenney: https://kenney.nl
 + skybox from customapmakers http://www.custommapmakers.org/skyboxes.php
++ fonts from https://www.1001freefonts.com
 
 Project structure:
 ```
