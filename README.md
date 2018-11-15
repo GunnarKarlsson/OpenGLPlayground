@@ -1,10 +1,9 @@
 # OpenGLPlayground
 
 Starter-pack for experimenting with OpenGL in Qt. Contains some basic elements to get up and running:
-+ light shader with flat shading
++ flat shading with light source represented by small cube
 + textured cube
-+ light source represented by small cube
-+ obj file model loading.
++ .obj model loading.
 + skybox
 + mouse and keyboard input to move camera
 + font rendering
