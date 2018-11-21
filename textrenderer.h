@@ -9,7 +9,7 @@ class TextRenderer
 public:
     TextRenderer();
     ~TextRenderer();
-    void renderText(AssetManager *am, Shader *s, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color);
+    void renderText(AssetManager *am, const Shader *s, const std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color);
 private:
     GLuint VAO, VBO;
 };
