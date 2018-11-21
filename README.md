@@ -7,6 +7,7 @@ Starter-pack for experimenting with OpenGL in Qt. Contains some basic elements t
 + skybox
 + mouse and keyboard input to move camera
 + font rendering
++ HUD quad with texture
 
 ![Screen shots](https://github.com/GunnarKarlsson/OpenGLplayground/raw/master/ss1.png)
 
@@ -17,7 +18,7 @@ Dependencies;
 + freetype https://www.freetype.org/
 
 Asset sources:
-+ models from kenney: https://kenney.nl
++ models and hud tile from kenney: https://kenney.nl
 + skybox from customapmakers http://www.custommapmakers.org/skyboxes.php
 + fonts from https://www.1001freefonts.com
 
@@ -31,6 +32,7 @@ your_dir/
 ```
 
 Misc:
+
 How to build assimp
 ```
 git clone https://github.com/assimp/assimp.git
