@@ -12,7 +12,7 @@
 
 #define DEBUG_TAG "BasterMines"
 
-#define SCREEN_WIDTH 960
+#define SCREEN_WIDTH 600
 #define SCREEN_HEIGHT 600
 #define NEAR_LIMIT 0.01
 #define FAR_LIMIT 1000.0

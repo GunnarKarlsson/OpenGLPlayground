@@ -8,7 +8,7 @@ class Quad
 public:
     explicit Quad(const float x, const float y, const float scale);
     ~Quad();
-    void render(glm::mat4 &view, glm::mat4 &projection, Shader *shader);
+    void render(Shader *shader);
     void setTextureId(unsigned int &id);
 private:
     unsigned int VBO, VAO, EBO;

@@ -84,7 +84,7 @@ void AssetManager::loadAssets()
     const char *filePathCube = "/Users/gunnarkarlsson/git/OpenGLPlayground/cube.png";
     loadTexture(filePathCube, cubeTextureId);
 
-    const char *quadTexturePath = "/Users/gunnarkarlsson/git/OpenGLPlayground/quad_tile.png";
+    const char *quadTexturePath = "/Users/gunnarkarlsson/git/OpenGLPlayground/panel.png";
     loadTexture(quadTexturePath, quadTextureId);
 
     std::string basePath = "/Users/gunnarkarlsson//git/OpenGLPlayground/";

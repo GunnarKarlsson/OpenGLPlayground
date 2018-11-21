@@ -69,7 +69,7 @@ void GameScene::init()
 
     textRenderer = new TextRenderer();
 
-    quad = new Quad(0.0f, 0.0f, 1.0f);
+    quad = new Quad(0.5f, 0.5f, 0.2f);
     quad->setTextureId(assetManager->quadTextureId);
 
     glEnable(GL_DEPTH_TEST);
@@ -82,11 +82,13 @@ void GameScene::update()
 
 void GameScene::render()
 {
+    float aspectRatio = (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT;
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glClearColor(0.4, 0.6, 0.8, 1.0);
     //On QOpenGLWindow, glViewport() is called by framework. Setting glViewport(0,0,w,h) generates diff viewport sizes on diff machines.
     glm::mat4 view = camera->GetViewMatrix();
-    glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, (float)NEAR_LIMIT, (float)FAR_LIMIT);
+    glm::mat4 projection = glm::perspective(glm::radians(45.0f), aspectRatio, (float)NEAR_LIMIT, (float)FAR_LIMIT);
 
     texturedCube->render(view, projection, lightPos, lightColor, basicShader);
 
@@ -101,10 +103,10 @@ void GameScene::render()
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    //textRenderer->renderText(assetManager, textShader, "OpenGL Playground", 10.0f, ((float)SCREEN_HEIGHT - 50.0f), 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    textRenderer->renderText(assetManager, textShader, "OpenGL Playground", 10.0f, ((float)SCREEN_HEIGHT - 50.0f), 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     glDisable(GL_BLEND);
 
-    quad->render(view, projection, quadShader);
+    quad->render(quadShader);
 }
 
 void GameScene::handleEvent(QEvent* event)
