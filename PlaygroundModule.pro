@@ -36,7 +36,9 @@ SOURCES += \
     skybox.cpp \
     skyboxshader.cpp \
     textshader.cpp \
-    textrenderer.cpp
+    textrenderer.cpp \
+    quad.cpp \
+    quadshader.cpp
 
 HEADERS += \
     stb_image.h \
@@ -57,7 +59,9 @@ HEADERS += \
     skybox.h \
     skyboxshader.h \
     textshader.h \
-    textrenderer.h
+    textrenderer.h \
+    quad.h \
+    quadshader.h
 
 FORMS +=
 
@@ -83,7 +87,12 @@ DISTFILES += \
     arial.ttf \
     text.vert \
     text.frag \
-    README.md
+    README.md \
+    heart.png \
+    heart.png \
+    quad.vert \
+    quad.frag \
+    quad_tile.png
 
 RESOURCES += \
     resources.qrc

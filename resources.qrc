@@ -10,5 +10,7 @@
         <file>skybox.frag</file>
         <file>text.vert</file>
         <file>text.frag</file>
+        <file>quad.vert</file>
+        <file>quad.frag</file>
     </qresource>
 </RCC>

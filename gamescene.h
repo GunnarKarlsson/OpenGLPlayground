@@ -14,6 +14,8 @@
 #include "skyboxshader.h"
 #include "textshader.h"
 #include "textrenderer.h"
+#include "quadshader.h"
+#include "quad.h"
 
 class GameScene : public Scene
 {
@@ -32,13 +34,14 @@ private:
     LightboxShader *lightboxShader;
     LoadedModelShader *loadedModelShader;
     TextShader *textShader;
+    QuadShader *quadShader;
 
     Camera *camera;
 
     glm::vec3 lightPos;
     glm::vec3 lightColor;
 
-    Cube *entity;
+    Cube *texturedCube;
     Cube *lightBox;
     LoadedModel *spaceShip;
     LoadedModel *largeRock;
@@ -46,6 +49,8 @@ private:
     Skybox *skybox;
 
     TextRenderer *textRenderer;
+
+    Quad *quad;
 
     int lastMouseX;
     int lastMouseY;

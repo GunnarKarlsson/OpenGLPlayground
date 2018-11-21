@@ -11,12 +11,13 @@ GameScene::~GameScene()
     delete assetManager;
     delete basicShader;
     delete camera;
-    delete entity;
+    delete texturedCube;
     delete spaceShip;
     delete lightBox;
     delete modelLoader;
     delete lightboxShader;
     delete loadedModelShader;
+    delete quad;
 }
 
 void GameScene::init()
@@ -41,10 +42,13 @@ void GameScene::init()
     textShader = new TextShader();
     textShader->compile();
 
-    entity = new Cube();
-    entity->initialize(-1.0f, 1.0f, 0.0f);
-    entity->setVisible(true);
-    entity->setTextureId(assetManager->cubeTextureId);
+    quadShader = new QuadShader();
+    quadShader->compile();
+
+    texturedCube = new Cube();
+    texturedCube->initialize(-1.0f, 1.0f, 0.0f);
+    texturedCube->setVisible(true);
+    texturedCube->setTextureId(assetManager->cubeTextureId);
 
     lightBox = new Cube();
     lightBox->initialize(lightPos.x, lightPos.y, lightPos.z);
@@ -65,6 +69,9 @@ void GameScene::init()
 
     textRenderer = new TextRenderer();
 
+    quad = new Quad(0.0f, 0.0f, 1.0f);
+    quad->setTextureId(assetManager->quadTextureId);
+
     glEnable(GL_DEPTH_TEST);
 }
 
@@ -81,7 +88,7 @@ void GameScene::render()
     glm::mat4 view = camera->GetViewMatrix();
     glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, (float)NEAR_LIMIT, (float)FAR_LIMIT);
 
-    entity->render(view, projection, lightPos, lightColor, basicShader);
+    texturedCube->render(view, projection, lightPos, lightColor, basicShader);
 
     spaceShip->render(view, projection, lightPos, lightColor, loadedModelShader);
 
@@ -96,6 +103,8 @@ void GameScene::render()
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     //textRenderer->renderText(assetManager, textShader, "OpenGL Playground", 10.0f, ((float)SCREEN_HEIGHT - 50.0f), 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     glDisable(GL_BLEND);
+
+    quad->render(view, projection, quadShader);
 }
 
 void GameScene::handleEvent(QEvent* event)

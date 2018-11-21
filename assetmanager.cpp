@@ -22,7 +22,7 @@ void AssetManager::loadAssets()
     }
 
     FT_Face face;
-    const char* fontPath = "/Users/gunnarkarlsson/git/OpenGLPlayground/aero.ttf";
+    const char *fontPath = "/Users/gunnarkarlsson/git/OpenGLPlayground/aero.ttf";
     if (FT_New_Face(ft, fontPath, 0, &face)) {
         qDebug() << "ERROR::FREETYPE: Failed to load font" << endl;
     } else {
@@ -81,8 +81,11 @@ void AssetManager::loadAssets()
 
         //end font load
 
-    const char * filePathCube = "/Users/gunnarkarlsson/git/OpenGLPlayground/cube.png";
+    const char *filePathCube = "/Users/gunnarkarlsson/git/OpenGLPlayground/cube.png";
     loadTexture(filePathCube, cubeTextureId);
+
+    const char *quadTexturePath = "/Users/gunnarkarlsson/git/OpenGLPlayground/quad_tile.png";
+    loadTexture(quadTexturePath, quadTextureId);
 
     std::string basePath = "/Users/gunnarkarlsson//git/OpenGLPlayground/";
     std::string SKY_LEFT = basePath + "SKY_LEFT.png";
@@ -103,7 +106,7 @@ void AssetManager::loadAssets()
     skyboxTextureId = loadSkyboxTextures(faces);
 }
 
-void AssetManager::loadTexture(const char* filePath, unsigned int &textureId)
+void AssetManager::loadTexture(const char *filePath, unsigned int &textureId)
 {
     glGenTextures(1, &textureId);
     glBindTexture(GL_TEXTURE_2D, textureId);

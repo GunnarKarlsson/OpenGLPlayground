@@ -13,6 +13,7 @@ public:
 
     unsigned int cubeTextureId;
     unsigned int skyboxTextureId;
+    unsigned int quadTextureId;
 
     std::map<GLchar, Character> characters;
 private:
