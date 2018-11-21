@@ -54,3 +54,25 @@ void Quad::render(const Shader *shader) const
 
     glDisable(GL_BLEND);
 }
+
+void Quad::render(glm::mat4 &view, glm::mat4 &projection, const Shader *shader)
+{
+    glm::mat4 model = glm::mat4(1.0);
+    model = glm::translate(model, glm::vec3(xPos, yPos, 0.0));
+    model = glm::scale(model, glm::vec3((float)size, (float)size, 1.0));
+    shader->use();
+    shader->setMat4("model", model);
+    shader->setMat4("view", view);
+    shader->setMat4("projection", projection);
+
+    glEnable (GL_BLEND);
+    glBlendFunc(GL_SRC_COLOR, GL_ONE_MINUS_SRC_COLOR);
+
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, textureId);
+    glBindVertexArray(VAO);
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    glDisable(GL_BLEND);
+}

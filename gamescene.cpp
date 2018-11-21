@@ -55,7 +55,7 @@ void GameScene::init()
 
     textRenderer = new TextRenderer();
 
-    quad = new Quad(0.5f, 0.5f, 0.2f);
+    quad = new Quad(100.0f, 100.0f, 40.0f);
     quad->setTextureId(assetManager->quadTextureId);
 
     glEnable(GL_DEPTH_TEST);
@@ -89,11 +89,21 @@ void GameScene::render()
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
     const glm::vec3 color = glm::vec3(1.0f, 1.0f, 1.0f);
     textRenderer->renderText(assetManager, shaderManager->getShader("textShader"), "OpenGL Playground", 10.0f, ((float)SCREEN_HEIGHT - 50.0f), 1.0f, color);
-    glDisable(GL_BLEND);
 
-    quad->render(shaderManager->getShader("quadShader"));
+    glDisable(GL_BLEND);
+    //quad->render(quadShader);
+
+    glDepthMask(GL_FALSE);
+    glDisable(GL_DEPTH_TEST);
+    glm::mat4 orthoProjection = glm::ortho(0.0f, (float)SCREEN_WIDTH, 0.0f, (float)SCREEN_HEIGHT, 0.1f, 1000.0f);
+
+    quad->render(view, orthoProjection, shaderManager->getShader("quadShader"));
+    glEnable(GL_DEPTH_TEST);
+    glDepthMask(GL_TRUE);
+
 }
 
 void GameScene::handleEvent(QEvent* event)
