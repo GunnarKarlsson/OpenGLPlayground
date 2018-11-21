@@ -21,7 +21,6 @@ LIBS += "/usr/local/lib/libfreetype.dylib"
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp \
     gamewindow.cpp \
     assetmanager.cpp \
     shader.cpp \
@@ -40,7 +39,6 @@ SOURCES += \
     textrenderer.cpp
 
 HEADERS += \
-        mainwindow.h \
     stb_image.h \
     gamewindow.h \
     assetmanager.h \
@@ -61,8 +59,7 @@ HEADERS += \
     textshader.h \
     textrenderer.h
 
-FORMS += \
-        mainwindow.ui
+FORMS +=
 
 DISTFILES += \
     basic.vert \
