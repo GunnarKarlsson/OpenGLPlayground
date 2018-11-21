@@ -16,7 +16,7 @@ Dependencies;
 + stb_image https://github.com/nothings/stb
 + freetype https://www.freetype.org/
 
-Other:
+Asset sources:
 + models from kenney: https://kenney.nl
 + skybox from customapmakers http://www.custommapmakers.org/skyboxes.php
 + fonts from https://www.1001freefonts.com
@@ -28,4 +28,14 @@ your_dir/
 ├── glm/
 ├── assimp/
 ├── freetype/
+```
+
+Misc:
+How to build assimp
+```
+git clone https://github.com/assimp/assimp.git
+cd assimp
+mkdir build
+cd build
+cmake ..
 ```
