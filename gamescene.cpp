@@ -55,7 +55,9 @@ void GameScene::init()
 
     textRenderer = new TextRenderer();
 
-    quad = new Quad(100.0f, 100.0f, 40.0f);
+    float offset = 1.0f;
+    float quadSize = 40.0f;
+    quad = new Quad(quadSize/2 + offset, quadSize/2 + offset, quadSize);
     quad->setTextureId(assetManager->quadTextureId);
 
     glEnable(GL_DEPTH_TEST);
