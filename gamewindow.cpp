@@ -32,6 +32,7 @@ void GameWindow::initializeGL()
 void GameWindow::resizeGL(int width, int height)
 {
     //TODO
+    qDebug() << "resize: " << width << " " << height;
 }
 
 void GameWindow::paintGL()

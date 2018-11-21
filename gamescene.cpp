@@ -75,9 +75,9 @@ void GameScene::update()
 
 void GameScene::render()
 {
-    glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glClearColor(0.4, 0.6, 0.8, 1.0);
+    //On QOpenGLWindow, glViewport() is called by framework. Setting glViewport(0,0,w,h) generates diff viewport sizes on diff machines.
     glm::mat4 view = camera->GetViewMatrix();
     glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, (float)NEAR_LIMIT, (float)FAR_LIMIT);
 
@@ -94,7 +94,7 @@ void GameScene::render()
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    textRenderer->renderText(assetManager, textShader, "OpenGL Playground", 10.0f, ((float)SCREEN_HEIGHT - 50.0f), 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    //textRenderer->renderText(assetManager, textShader, "OpenGL Playground", 10.0f, ((float)SCREEN_HEIGHT - 50.0f), 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     glDisable(GL_BLEND);
 }
 
