@@ -82,7 +82,7 @@ void Mesh::setRotation(float xDegrees, float yDegrees, float zDegrees)
     zRotationRadians = M_PI/180.0f * zDegrees;
 }
 
-void Mesh::render(glm::mat4 &view, glm::mat4 &projection, glm::vec3 lightPos, glm::vec3 lightColor, Shader *shader)
+void Mesh::render(const glm::mat4 &view, const glm::mat4 &projection, const glm::vec3 lightPos, const glm::vec3 lightColor, const Shader *shader)
 {
     glm::mat4 model = glm::mat4(1.0);
     model = glm::translate(model, glm::vec3(xPos, yPos, zPos));

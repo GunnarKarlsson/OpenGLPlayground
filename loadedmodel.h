@@ -11,10 +11,10 @@ public:
     LoadedModel();
     ~LoadedModel();
     void addMesh(Mesh *mesh);
-    void setPosition(float x, float y, float z);
-    void setScale(float x, float y, float z);
-    void setRotation(float xDegrees, float yDegrees, float zDegrees);
-    void render(glm::mat4 &view, glm::mat4 &projection, glm::vec3 lightPos, glm::vec3 lightColor, Shader *shader);
+    void setPosition(const float x, const float y, const float z);
+    void setScale(const float x, const float y, const float z);
+    void setRotation(const float xDegrees, const float yDegrees, const float zDegrees);
+    void render(const glm::mat4 &view, const glm::mat4 &projection, const glm::vec3 lightPos, const glm::vec3 lightColor, const Shader *shader);
 private:
     std::vector<Mesh*> meshes;
 };

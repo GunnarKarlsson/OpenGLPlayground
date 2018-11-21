@@ -129,7 +129,7 @@ void Shader::printProgramLog(GLuint program)
     LOGE("Info log:\n%s", buf);
 }
 
-void Shader::use()
+void Shader::use() const
 {
     //qDebug() << "programId: " << programId << endl;
     glUseProgram(programId);

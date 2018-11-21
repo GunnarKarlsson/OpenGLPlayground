@@ -35,17 +35,17 @@ void Cube::setTextureId(unsigned int &id)
     textureId = id;
 }
 
-void Cube::setVelocity(int velocity)
+void Cube::setVelocity(const int velocity)
 {
     this->velocity = velocity;
 }
 
-void Cube::setSize(glm::vec3 size)
+void Cube::setSize(const glm::vec3 size)
 {
     this->size =  size;
 }
 
-bool Cube::setVisible(bool value)
+bool Cube::setVisible(const bool value)
 {
     this->visible = value;
 }
@@ -73,7 +73,7 @@ void Cube::render(glm::mat4 &view, glm::mat4 &projection, glm::vec3 lightPos, gl
    }
 }
 
-void Cube::initialize(float x, float y, float z)
+void Cube::initialize(const float x, const float y, const float z)
 {
     xPos = x;
     yPos = y;

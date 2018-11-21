@@ -51,21 +51,21 @@ public:
         updateCameraVectors();
     }
 
-    glm::mat4 GetViewMatrix()
+    const glm::mat4 GetViewMatrix()
     {
         return glm::lookAt(Position, Position + Front, Up);
     }
 
-    glm::vec3 GetPosition() {
+    const glm::vec3 GetPosition() {
         return Position;
     }
 
-    void ProcessTarget(glm::vec3 target, glm::vec3 offset) {
+    void ProcessTarget(const glm::vec3 target, const glm::vec3 offset) {
         Position = target - offset;
         std::cout << Position.x << " " << Position.y << " "<< Position.z << std::endl;
     }
 
-    void ProcessKeyboard(Camera_Movement direction, float deltaTime)
+    void ProcessKeyboard(const Camera_Movement direction, const float deltaTime)
     {
         float velocity = MovementSpeed * deltaTime;
         if (direction == FORWARD)
@@ -78,7 +78,7 @@ public:
             Position += Right * velocity;
     }
 
-    void ProcessMouseMovement(float xoffset, float yoffset, GLboolean constrainPitch = false)
+    void ProcessMouseMovement(float xoffset, float yoffset, const GLboolean constrainPitch = false)
     {
         xoffset *= MouseSensitivity;
         yoffset *= MouseSensitivity;
@@ -97,7 +97,7 @@ public:
         updateCameraVectors();
     }
 
-    void ProcessMouseScroll(float yoffset)
+    void ProcessMouseScroll(const float yoffset)
     {
         if (Zoom >= 1.0f && Zoom <= 45.0f)
             Zoom -= yoffset;

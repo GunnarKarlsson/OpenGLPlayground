@@ -18,7 +18,7 @@ public:
     std::map<GLchar, Character> characters;
 private:
     void loadTexture(const char* path, unsigned int &textureId);
-    unsigned int loadSkyboxTextures(std::vector<std::string> faces);
+    unsigned int loadSkyboxTextures(const std::vector<std::string> faces);
 };
 
 #endif // ASSETMANAGER_H
