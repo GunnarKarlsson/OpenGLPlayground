@@ -2,7 +2,7 @@
 
 #include <QtMath>
 
-Mesh::Mesh(std::vector<float> vertices, std::vector<unsigned int> indices, glm::vec3 color)
+Mesh::Mesh(const std::vector<float> vertices, const std::vector<unsigned int> indices, const glm::vec3 color)
 {
     this->vertices = vertices;
     this->indices = indices;
@@ -61,21 +61,21 @@ void Mesh::init()
          glBindVertexArray(0);
 }
 
-void Mesh::setPosition(float x, float y, float z)
+void Mesh::setPosition(const float x, const float y, const float z)
 {
     xPos = x;
     yPos = y;
     zPos = z;
 }
 
-void Mesh::setScale(float x, float y, float z)
+void Mesh::setScale(const float x, const float y, const float z)
 {
     xScale = x * SCALE_MODIFIER;
     yScale = y * SCALE_MODIFIER;
     zScale = z * SCALE_MODIFIER;
 }
 
-void Mesh::setRotation(float xDegrees, float yDegrees, float zDegrees)
+void Mesh::setRotation(const float xDegrees, const float yDegrees, const float zDegrees)
 {
     xRotationRadians = M_PI/180.0f * xDegrees;
     yRotationRadians = M_PI/180.0f * yDegrees;

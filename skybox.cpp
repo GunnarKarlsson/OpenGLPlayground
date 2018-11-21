@@ -17,7 +17,7 @@ Skybox::~Skybox() {
     delete skyboxShader;
 }
 
-void Skybox::update(glm::mat4 &view, glm::mat4 &projection) {
+void Skybox::update(const glm::mat4 &view, const glm::mat4 &projection) const {
     glDepthFunc(GL_LEQUAL);  // change depth function so depth test passes when values are equal to depth buffer's content
     skyboxShader->use();
     skyboxShader->setMat4("view", view);

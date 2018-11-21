@@ -35,7 +35,7 @@ void Quad::setTextureId(unsigned int &id)
 }
 
 
-void Quad::render(Shader *shader)
+void Quad::render(const Shader *shader) const
 {
     glm::mat4 model = glm::mat4(1.0);
     model = glm::translate(model, glm::vec3(xPos, yPos, 0.0));
@@ -52,5 +52,5 @@ void Quad::render(Shader *shader)
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     glBindTexture(GL_TEXTURE_2D, 0);
 
-     glDisable(GL_BLEND);
+    glDisable(GL_BLEND);
 }

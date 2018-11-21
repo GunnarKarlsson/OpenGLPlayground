@@ -15,7 +15,7 @@ class ModelLoader
 public:
     ModelLoader();
     ~ModelLoader();
-    LoadedModel* Load(QString pathToFile);
+    LoadedModel* Load(const QString pathToFile);
 private:
     std::vector<aiMesh*> meshes;
 };

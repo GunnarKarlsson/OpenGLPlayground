@@ -10,14 +10,14 @@ public:
     Skybox();
     ~Skybox();
     void setTextureId(unsigned int &id);
-    void update(glm::mat4 &view, glm::mat4 &projection);
+    void update(const glm::mat4 &view, const glm::mat4 &projection) const;
 private:
     unsigned int skyboxTextureId;
     SkyboxShader * skyboxShader;
     unsigned int skyboxVAO;
     unsigned int skyboxVBO;
     unsigned int cubemapTexture;
-    float skyboxVertices[6 * 6 * 3] = {
+    const float skyboxVertices[6 * 6 * 3] = {
         // positions
         -500.0f,  500.0f, -500.0f,
         -500.0f, -500.0f, -500.0f,

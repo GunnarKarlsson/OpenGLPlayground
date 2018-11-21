@@ -4,7 +4,7 @@
 ModelLoader::ModelLoader() {}
 ModelLoader::~ModelLoader(){}
 
-LoadedModel* ModelLoader::Load(QString pathToFile)
+LoadedModel* ModelLoader::Load(const QString pathToFile)
 {
 
     Assimp::Importer importer;

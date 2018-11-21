@@ -9,11 +9,11 @@
 class Mesh
 {
 public:
-    Mesh(std::vector<float> vertices, std::vector<unsigned int> indices, glm::vec3 color);
+    Mesh(const std::vector<float> vertices, const std::vector<unsigned int> indices, const glm::vec3 color);
     ~Mesh();
-    void setPosition(float x, float y, float z);
-    void setScale(float x, float y, float z);
-    void setRotation(float xDegrees, float yDegrees, float zDegrees);
+    void setPosition(const float x, const float y, const float z);
+    void setScale(const float x, const float y, const float z);
+    void setRotation(const float xDegrees, const float yDegrees, const float zDegrees);
     void render(const glm::mat4 &view, const glm::mat4 &projection, const glm::vec3 lightPos, const glm::vec3 lightColor, const Shader *shader);
 
 private:
