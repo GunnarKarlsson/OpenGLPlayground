@@ -9,10 +9,10 @@ class Scene
 public:
     Scene();
     virtual ~Scene();
-    virtual void init();
-    virtual void update();
-    virtual void render();
-    virtual void handleEvent(QEvent* event);
+    virtual void init() = 0;
+    virtual void update() = 0;
+    virtual void render() = 0;
+    virtual void handleEvent(QEvent* event) = 0;
 };
 
 #endif // SCENE_H
