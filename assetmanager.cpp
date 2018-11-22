@@ -23,7 +23,7 @@ void AssetManager::loadAssets()
 
     QTemporaryDir tempDir;
     QString str = getResPath(tempDir, "/Fonts","Aero.ttf");
-    qDebug() << "path: " << str;
+    qDebug() << "fontpath: " << str;
     const char *fontPath = str.toStdString().c_str();
 
     FT_Face face;
@@ -86,10 +86,12 @@ void AssetManager::loadAssets()
 
         //end font load
 
-    const char *filePathCube = "/Users/gunnarkarlsson/git/OpenGLPlayground/cube.png";
+    QString cubePathStr = getResPath(tempDir, "/Textures", "cube.png");
+    const char *filePathCube = cubePathStr.toStdString().c_str();
     loadTexture(filePathCube, cubeTextureId);
 
-    const char *quadTexturePath = "/Users/gunnarkarlsson/git/OpenGLPlayground/panel.png";
+    QString quadPathStr = getResPath(tempDir, "/Textures", "panel.png");
+    const char *quadTexturePath = quadPathStr.toStdString().c_str();//"/Users/gunnarkarlsson/git/OpenGLPlayground/panel.png";
     loadTexture(quadTexturePath, quadTextureId);
 
     std::string basePath = "/Users/gunnarkarlsson//git/OpenGLPlayground/";
