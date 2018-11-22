@@ -2,7 +2,4 @@
 
 Scene::Scene(){}
 Scene::~Scene(){}
-void Scene::init(){}
-void Scene::update(){}
-void Scene::render(){}
-void Scene::handleEvent(QEvent* event){}
+
