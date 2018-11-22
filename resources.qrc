@@ -19,5 +19,11 @@
     <qresource prefix="/Textures">
         <file>cube.png</file>
         <file>panel.png</file>
+        <file>SKY_BACK.png</file>
+        <file>SKY_DOWN.png</file>
+        <file>SKY_FRONT.png</file>
+        <file>SKY_LEFT.png</file>
+        <file>SKY_RIGHT.png</file>
+        <file>SKY_UP.png</file>
     </qresource>
 </RCC>

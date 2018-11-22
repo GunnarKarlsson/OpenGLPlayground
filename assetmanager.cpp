@@ -94,22 +94,14 @@ void AssetManager::loadAssets()
     const char *quadTexturePath = quadPathStr.toStdString().c_str();
     loadTexture(quadTexturePath, quadTextureId);
 
-    std::string basePath = "/Users/gunnarkarlsson//git/OpenGLPlayground/";
-    std::string SKY_LEFT = basePath + "SKY_LEFT.png";
-    std::string SKY_RIGHT = basePath + "SKY_RIGHT.png";
-    std::string SKY_UP = basePath + "SKY_UP.png";
-    std::string SKY_DOWN = basePath + "SKY_DOWN.png";
-    std::string SKY_FRONT = basePath + "SKY_FRONT.png";
-    std::string SKY_BACK = basePath + "SKY_BACK.png";
+    std::vector<std::string> faces;
+    faces.push_back(getResPath(tempDir, "/Textures", "SKY_LEFT.png").toStdString());
+    faces.push_back(getResPath(tempDir, "/Textures", "SKY_RIGHT.png").toStdString());
+    faces.push_back(getResPath(tempDir, "/Textures", "SKY_UP.png").toStdString());
+    faces.push_back(getResPath(tempDir, "/Textures", "SKY_DOWN.png").toStdString());
+    faces.push_back(getResPath(tempDir, "/Textures", "SKY_FRONT.png").toStdString());
+    faces.push_back(getResPath(tempDir, "/Textures", "SKY_BACK.png").toStdString());
 
-    std::vector<std::string> faces {
-        SKY_LEFT,
-                SKY_RIGHT,
-                SKY_UP,
-                SKY_DOWN,
-                SKY_FRONT,
-                SKY_BACK
-    };
     skyboxTextureId = loadSkyboxTextures(faces);
 }
 
