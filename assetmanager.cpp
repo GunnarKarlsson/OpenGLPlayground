@@ -41,57 +41,57 @@ void AssetManager::loadAssets()
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
     // Load first 128 characters of ASCII set
-        for (GLubyte c = 0; c < 128; c++)
+    for (GLubyte c = 0; c < 128; c++)
+    {
+        // Load character glyph
+        if (FT_Load_Char(face, c, FT_LOAD_RENDER))
         {
-            // Load character glyph
-            if (FT_Load_Char(face, c, FT_LOAD_RENDER))
-            {
-                qDebug() << "ERROR::FREETYTPE: Failed to load Glyph" << endl;
-                continue;
-            }
-            // Generate texture
-            GLuint texture;
-            glGenTextures(1, &texture);
-            glBindTexture(GL_TEXTURE_2D, texture);
-            glTexImage2D(
-                GL_TEXTURE_2D,
-                0,
-                GL_RED,
-                face->glyph->bitmap.width,
-                face->glyph->bitmap.rows,
-                0,
-                GL_RED,
-                GL_UNSIGNED_BYTE,
-                face->glyph->bitmap.buffer
-            );
-            // Set texture options
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-            // Now store character for later use
-            Character character = {
-                texture,
-                glm::ivec2(face->glyph->bitmap.width, face->glyph->bitmap.rows),
-                glm::ivec2(face->glyph->bitmap_left, face->glyph->bitmap_top),
-                static_cast<GLuint>(face->glyph->advance.x)
-            };
-            characters.insert(std::pair<GLchar, Character>(c, character));
+            qDebug() << "ERROR::FREETYTPE: Failed to load Glyph" << endl;
+            continue;
         }
-        glBindTexture(GL_TEXTURE_2D, 0);
-        // Destroy FreeType once we're finished
-        FT_Done_Face(face);
-        FT_Done_FreeType(ft);
+        // Generate texture
+        GLuint texture;
+        glGenTextures(1, &texture);
+        glBindTexture(GL_TEXTURE_2D, texture);
+        glTexImage2D(
+                    GL_TEXTURE_2D,
+                    0,
+                    GL_RED,
+                    face->glyph->bitmap.width,
+                    face->glyph->bitmap.rows,
+                    0,
+                    GL_RED,
+                    GL_UNSIGNED_BYTE,
+                    face->glyph->bitmap.buffer
+                    );
+        // Set texture options
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        // Now store character for later use
+        Character character = {
+            texture,
+            glm::ivec2(face->glyph->bitmap.width, face->glyph->bitmap.rows),
+            glm::ivec2(face->glyph->bitmap_left, face->glyph->bitmap_top),
+            static_cast<GLuint>(face->glyph->advance.x)
+        };
+        characters.insert(std::pair<GLchar, Character>(c, character));
+    }
+    glBindTexture(GL_TEXTURE_2D, 0);
+    // Destroy FreeType once we're finished
+    FT_Done_Face(face);
+    FT_Done_FreeType(ft);
 
 
-        //end font load
+    //end font load
 
     QString cubePathStr = getResPath(tempDir, "/Textures", "cube.png");
     const char *filePathCube = cubePathStr.toStdString().c_str();
     loadTexture(filePathCube, cubeTextureId);
 
     QString quadPathStr = getResPath(tempDir, "/Textures", "panel.png");
-    const char *quadTexturePath = quadPathStr.toStdString().c_str();//"/Users/gunnarkarlsson/git/OpenGLPlayground/panel.png";
+    const char *quadTexturePath = quadPathStr.toStdString().c_str();
     loadTexture(quadTexturePath, quadTextureId);
 
     std::string basePath = "/Users/gunnarkarlsson//git/OpenGLPlayground/";
@@ -103,13 +103,13 @@ void AssetManager::loadAssets()
     std::string SKY_BACK = basePath + "SKY_BACK.png";
 
     std::vector<std::string> faces {
-                SKY_LEFT,
+        SKY_LEFT,
                 SKY_RIGHT,
                 SKY_UP,
                 SKY_DOWN,
                 SKY_FRONT,
                 SKY_BACK
-            };
+    };
     skyboxTextureId = loadSkyboxTextures(faces);
 }
 
