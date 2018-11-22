@@ -17,14 +17,14 @@
         <file>Aero.ttf</file>
     </qresource>
     <qresource prefix="/Textures">
-        <file>cube.png</file>
-        <file>panel.png</file>
-        <file>SKY_BACK.png</file>
-        <file>SKY_DOWN.png</file>
-        <file>SKY_FRONT.png</file>
-        <file>SKY_LEFT.png</file>
-        <file>SKY_RIGHT.png</file>
-        <file>SKY_UP.png</file>
+        <file>Textures/cube.png</file>
+        <file>Textures/panel.png</file>
+        <file>Textures/SKY_BACK.png</file>
+        <file>Textures/SKY_DOWN.png</file>
+        <file>Textures/SKY_FRONT.png</file>
+        <file>Textures/SKY_LEFT.png</file>
+        <file>Textures/SKY_RIGHT.png</file>
+        <file>Textures/SKY_UP.png</file>
     </qresource>
     <qresource prefix="/Meshes">
         <file>spaceCraft4.obj</file>

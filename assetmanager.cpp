@@ -83,21 +83,21 @@ void AssetManager::loadAssets()
 
     //end font load
 
-    QString cubePathStr = getResPath(tempDir, "/Textures", "cube.png");
+    QString cubePathStr = getResPath(tempDir, "/Textures/Textures/", "cube.png");
     const char *filePathCube = cubePathStr.toStdString().c_str();
     loadTexture(filePathCube, cubeTextureId);
 
-    QString quadPathStr = getResPath(tempDir, "/Textures", "panel.png");
+    QString quadPathStr = getResPath(tempDir, "/Textures/Textures/", "panel.png");
     const char *quadTexturePath = quadPathStr.toStdString().c_str();
     loadTexture(quadTexturePath, quadTextureId);
 
     std::vector<std::string> skyBoxFaces;
-    skyBoxFaces.push_back(getResPath(tempDir, "/Textures", "SKY_LEFT.png").toStdString());
-    skyBoxFaces.push_back(getResPath(tempDir, "/Textures", "SKY_RIGHT.png").toStdString());
-    skyBoxFaces.push_back(getResPath(tempDir, "/Textures", "SKY_UP.png").toStdString());
-    skyBoxFaces.push_back(getResPath(tempDir, "/Textures", "SKY_DOWN.png").toStdString());
-    skyBoxFaces.push_back(getResPath(tempDir, "/Textures", "SKY_FRONT.png").toStdString());
-    skyBoxFaces.push_back(getResPath(tempDir, "/Textures", "SKY_BACK.png").toStdString());
+    skyBoxFaces.push_back(getResPath(tempDir, "/Textures/Textures/", "SKY_LEFT.png").toStdString());
+    skyBoxFaces.push_back(getResPath(tempDir, "/Textures/Textures/", "SKY_RIGHT.png").toStdString());
+    skyBoxFaces.push_back(getResPath(tempDir, "/Textures/Textures/", "SKY_UP.png").toStdString());
+    skyBoxFaces.push_back(getResPath(tempDir, "/Textures/Textures/", "SKY_DOWN.png").toStdString());
+    skyBoxFaces.push_back(getResPath(tempDir, "/Textures/Textures/", "SKY_FRONT.png").toStdString());
+    skyBoxFaces.push_back(getResPath(tempDir, "/Textures/Textures/", "SKY_BACK.png").toStdString());
 
     skyboxTextureId = loadSkyboxTextures(skyBoxFaces);
 }

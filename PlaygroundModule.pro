@@ -83,7 +83,15 @@ DISTFILES += \
     heart.png \
     quad.vert \
     quad.frag \
-    quad_tile.png
+    quad_tile.png \
+    Textures/cube.png \
+    Textures/panel.png \
+    Textures/SKY_BACK.png \
+    Textures/SKY_DOWN.png \
+    Textures/SKY_FRONT.png \
+    Textures/SKY_LEFT.png \
+    Textures/SKY_RIGHT.png \
+    Textures/SKY_UP.png
 
 RESOURCES += \
     resources.qrc
