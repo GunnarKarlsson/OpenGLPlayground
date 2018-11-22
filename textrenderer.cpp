@@ -13,7 +13,7 @@ TextRenderer::TextRenderer()
     glBindVertexArray(0);
 }
 
-void TextRenderer::renderText(AssetManager *am, const Shader *shader, const std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color)
+void TextRenderer::renderText(AssetManager *am, const Shader *shader, const std::string &text, GLfloat x, GLfloat y, GLfloat scale, const glm::vec3 &color)
 {
     glm::mat4 projection = glm::ortho(0.0f, (float)SCREEN_WIDTH, 0.0f, (float)SCREEN_HEIGHT);
     // Activate corresponding render state

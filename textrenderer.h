@@ -9,7 +9,7 @@ class TextRenderer
 public:
     TextRenderer();
     ~TextRenderer();
-    void renderText(AssetManager *am, const Shader *s, const std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color);
+    void renderText(AssetManager *am, const Shader *s, const std::string &text, GLfloat x, GLfloat y, GLfloat scale, const glm::vec3 &color);
 private:
     TextRenderer(const TextRenderer&);
     TextRenderer& operator=(const TextRenderer&);
