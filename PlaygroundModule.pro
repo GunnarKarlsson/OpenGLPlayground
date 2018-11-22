@@ -24,20 +24,15 @@ SOURCES += \
     gamewindow.cpp \
     assetmanager.cpp \
     shader.cpp \
-    basicshader.cpp \
     scene.cpp \
     gamescene.cpp \
-    lightboxshader.cpp \
     modelloader.cpp \
     cube.cpp \
     loadedmodel.cpp \
     mesh.cpp \
-    loadedmodelshader.cpp \
     skybox.cpp \
-    textshader.cpp \
     textrenderer.cpp \
-    quad.cpp \
-    quadshader.cpp
+    quad.cpp
 
 HEADERS += \
     stb_image.h \
@@ -46,20 +41,16 @@ HEADERS += \
     common.h \
     camera.h \
     shader.h \
-    basicshader.h \
     scene.h \
     gamescene.h \
-    lightboxshader.h \
     modelloader.h \
     cube.h \
     loadedmodel.h \
     mesh.h \
-    loadedmodelshader.h \
     skybox.h \
     textshader.h \
     textrenderer.h \
-    quad.h \
-    quadshader.h
+    quad.h
 
 FORMS +=
 

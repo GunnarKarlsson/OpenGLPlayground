@@ -4,18 +4,14 @@
 #include <QEvent>
 #include "scene.h"
 #include "assetmanager.h"
-#include "basicshader.h"
-#include "lightboxshader.h"
 #include "loadedmodelshader.h"
 #include "camera.h"
 #include "cube.h"
 #include "modelloader.h"
 #include "skybox.h"
-#include "skyboxshader.h"
-#include "textshader.h"
 #include "textrenderer.h"
-#include "quadshader.h"
 #include "quad.h"
+#include "shader.h"
 
 class GameScene : public Scene
 {
@@ -30,11 +26,11 @@ private:
     AssetManager *assetManager;
     ModelLoader *modelLoader;
 
-    BasicShader *basicShader;
-    LightboxShader *lightboxShader;
-    LoadedModelShader *loadedModelShader;
-    TextShader *textShader;
-    QuadShader *quadShader;
+    Shader *basicShader;
+    Shader *lightboxShader;
+    Shader *loadedModelShader;
+    Shader *textShader;
+    Shader *quadShader;
 
     Camera *camera;
 

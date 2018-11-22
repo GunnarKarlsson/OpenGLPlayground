@@ -30,20 +30,15 @@ void GameScene::init()
 
     camera = new Camera(glm::vec3(2.0f, 2.0f, 7.0f));
 
-    basicShader = new BasicShader();
-    basicShader->compile();
+    basicShader = new Shader(":/Shaders/basic.vert", ":/Shaders/basic.frag");
 
-    lightboxShader = new LightboxShader();
-    lightboxShader->compile();
+    lightboxShader = new Shader(":/Shaders/lightbox.vert", ":/Shaders/lightbox.frag");
 
-    loadedModelShader = new LoadedModelShader();
-    loadedModelShader->compile();
+    loadedModelShader = new Shader(":/Shaders/loadedmodel.vert",":/Shaders/loadedmodel.frag");
 
-    textShader = new TextShader();
-    textShader->compile();
+    textShader = new Shader(":/Shaders/text.vert", ":/Shaders/text.frag");
 
-    quadShader = new QuadShader();
-    quadShader->compile();
+    quadShader = new Shader(":/Shaders/quad.vert",":/Shaders/quad.frag");
 
     texturedCube = new Cube();
     texturedCube->initialize(-1.0f, 1.0f, 0.0f);
