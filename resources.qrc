@@ -1,17 +1,17 @@
 <RCC>
     <qresource prefix="/Shaders">
-        <file>basic.vert</file>
-        <file>basic.frag</file>
-        <file>lightbox.vert</file>
-        <file>lightbox.frag</file>
-        <file>loadedmodel.vert</file>
-        <file>loadedmodel.frag</file>
-        <file>skybox.vert</file>
-        <file>skybox.frag</file>
-        <file>text.vert</file>
-        <file>text.frag</file>
-        <file>quad.vert</file>
-        <file>quad.frag</file>
+        <file>Shaders/text.frag</file>
+        <file>Shaders/text.vert</file>
+        <file>Shaders/basic.vert</file>
+        <file>Shaders/lightbox.frag</file>
+        <file>Shaders/lightbox.vert</file>
+        <file>Shaders/loadedmodel.frag</file>
+        <file>Shaders/loadedmodel.vert</file>
+        <file>Shaders/quad.frag</file>
+        <file>Shaders/quad.vert</file>
+        <file>Shaders/skybox.frag</file>
+        <file>Shaders/skybox.vert</file>
+        <file>Shaders/basic.frag</file>
     </qresource>
     <qresource prefix="/Fonts">
         <file>Aero.ttf</file>

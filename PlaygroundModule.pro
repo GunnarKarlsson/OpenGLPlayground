@@ -91,7 +91,19 @@ DISTFILES += \
     Textures/SKY_FRONT.png \
     Textures/SKY_LEFT.png \
     Textures/SKY_RIGHT.png \
-    Textures/SKY_UP.png
+    Textures/SKY_UP.png \
+    Shaders/text.frag \
+    Shaders/text.vert \
+    Shaders/basic.frag \
+    Shaders/lightbox.frag \
+    Shaders/loadedmodel.frag \
+    Shaders/quad.frag \
+    Shaders/skybox.frag \
+    Shaders/basic.vert \
+    Shaders/lightbox.vert \
+    Shaders/loadedmodel.vert \
+    Shaders/quad.vert \
+    Shaders/skybox.vert
 
 RESOURCES += \
     resources.qrc

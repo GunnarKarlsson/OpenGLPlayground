@@ -12,19 +12,19 @@ ShaderManager::~ShaderManager()
 
 void ShaderManager::compileShaders()
 {
-    Shader *basicShader = new Shader(":/Shaders/basic.vert", ":/Shaders/basic.frag");
+    Shader *basicShader = new Shader(":/Shaders/Shaders/basic.vert", ":/Shaders/Shaders/basic.frag");
     map.insert(std::make_pair("basicShader", basicShader));
 
-    Shader *lightboxShader = new Shader(":/Shaders/lightbox.vert", ":/Shaders/lightbox.frag");
+    Shader *lightboxShader = new Shader(":/Shaders/Shaders/lightbox.vert", ":/Shaders/Shaders/lightbox.frag");
     map.insert(std::make_pair("lightboxShader", lightboxShader));
 
-    Shader *loadedModelShader = new Shader(":/Shaders/loadedmodel.vert",":/Shaders/loadedmodel.frag");
+    Shader *loadedModelShader = new Shader(":/Shaders/Shaders/loadedmodel.vert",":/Shaders/Shaders/loadedmodel.frag");
     map.insert(std::make_pair("loadedModelShader", loadedModelShader));
 
-    Shader *textShader = new Shader(":/Shaders/text.vert", ":/Shaders/text.frag");
+    Shader *textShader = new Shader(":/Shaders/Shaders/text.vert", ":/Shaders/Shaders/text.frag");
     map.insert(std::make_pair("textShader", textShader));
 
-    Shader *quadShader = new Shader(":/Shaders/quad.vert",":/Shaders/quad.frag");
+    Shader *quadShader = new Shader(":/Shaders/Shaders/quad.vert",":/Shaders/Shaders/quad.frag");
     map.insert(std::make_pair("quadShader", quadShader));
 }
 
