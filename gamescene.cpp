@@ -9,14 +9,12 @@ GameScene::GameScene()
 GameScene::~GameScene()
 {
     delete assetManager;
-    delete basicShader;
+    delete shaderManager;
     delete camera;
     delete texturedCube;
     delete spaceShip;
     delete lightBox;
     delete modelLoader;
-    delete lightboxShader;
-    delete loadedModelShader;
     delete quad;
 }
 
@@ -28,17 +26,10 @@ void GameScene::init()
     assetManager = new AssetManager();
     assetManager->loadAssets();
 
+    shaderManager = new ShaderManager();
+    shaderManager->compileShaders();
+
     camera = new Camera(glm::vec3(2.0f, 2.0f, 7.0f));
-
-    basicShader = new Shader(":/Shaders/basic.vert", ":/Shaders/basic.frag");
-
-    lightboxShader = new Shader(":/Shaders/lightbox.vert", ":/Shaders/lightbox.frag");
-
-    loadedModelShader = new Shader(":/Shaders/loadedmodel.vert",":/Shaders/loadedmodel.frag");
-
-    textShader = new Shader(":/Shaders/text.vert", ":/Shaders/text.frag");
-
-    quadShader = new Shader(":/Shaders/quad.vert",":/Shaders/quad.frag");
 
     texturedCube = new Cube();
     texturedCube->initialize(-1.0f, 1.0f, 0.0f);
@@ -49,8 +40,6 @@ void GameScene::init()
     lightBox->initialize(lightPos.x, lightPos.y, lightPos.z);
     lightBox->setVisible(true);
     lightBox->setSize(glm::vec3(0.2f, 0.2f, 0.2f));
-
-
 
     modelLoader = new ModelLoader();
     spaceShip = modelLoader->Load("/Meshes","spaceCraft4.obj");
@@ -87,23 +76,23 @@ void GameScene::render()
     glm::mat4 view = camera->GetViewMatrix();
     glm::mat4 projection = glm::perspective(glm::radians(45.0f), aspectRatio, (float)NEAR_LIMIT, (float)FAR_LIMIT);
 
-    texturedCube->render(view, projection, lightPos, lightColor, basicShader);
+    texturedCube->render(view, projection, lightPos, lightColor, shaderManager->getShader("basicShader"));
 
-    spaceShip->render(view, projection, lightPos, lightColor, loadedModelShader);
+    spaceShip->render(view, projection, lightPos, lightColor, shaderManager->getShader("loadedModelShader"));
 
-    largeRock->render(view, projection, lightPos, lightColor, loadedModelShader);
+    largeRock->render(view, projection, lightPos, lightColor, shaderManager->getShader("loadedModelShader"));
 
-    lightBox->render(view, projection, lightPos, lightColor, lightboxShader);
+    lightBox->render(view, projection, lightPos, lightColor, shaderManager->getShader("lightboxShader"));
 
     glm::mat4 skyboxView = glm::mat4(glm::mat3(camera->GetViewMatrix())); // remove translation from the view matrix
     skybox->update(skyboxView, projection);//TODO: rename to skybox->render
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    textRenderer->renderText(assetManager, textShader, "OpenGL Playground", 10.0f, ((float)SCREEN_HEIGHT - 50.0f), 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+    textRenderer->renderText(assetManager, shaderManager->getShader("textShader"), "OpenGL Playground", 10.0f, ((float)SCREEN_HEIGHT - 50.0f), 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
     glDisable(GL_BLEND);
 
-    quad->render(quadShader);
+    quad->render(shaderManager->getShader("quadShader"));
 }
 
 void GameScene::handleEvent(QEvent* event)

@@ -4,7 +4,6 @@
 #include <QEvent>
 #include "scene.h"
 #include "assetmanager.h"
-#include "loadedmodelshader.h"
 #include "camera.h"
 #include "cube.h"
 #include "modelloader.h"
@@ -12,6 +11,7 @@
 #include "textrenderer.h"
 #include "quad.h"
 #include "shader.h"
+#include "shadermanager.h"
 
 class GameScene : public Scene
 {
@@ -24,13 +24,8 @@ public:
     void handleEvent(QEvent* event);
 private:
     AssetManager *assetManager;
+    ShaderManager *shaderManager;
     ModelLoader *modelLoader;
-
-    Shader *basicShader;
-    Shader *lightboxShader;
-    Shader *loadedModelShader;
-    Shader *textShader;
-    Shader *quadShader;
 
     Camera *camera;
 

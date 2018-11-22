@@ -81,7 +81,6 @@ void AssetManager::loadAssets()
     FT_Done_Face(face);
     FT_Done_FreeType(ft);
 
-
     //end font load
 
     QString cubePathStr = getResPath(tempDir, "/Textures", "cube.png");
