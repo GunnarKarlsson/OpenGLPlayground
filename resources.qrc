@@ -13,4 +13,7 @@
         <file>quad.vert</file>
         <file>quad.frag</file>
     </qresource>
+    <qresource prefix="/Fonts">
+        <file>Aero.ttf</file>
+    </qresource>
 </RCC>

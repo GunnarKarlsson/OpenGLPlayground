@@ -6,6 +6,8 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
+#include <QTemporaryDir>
+
 AssetManager::AssetManager(){}
 
 AssetManager::~AssetManager() {}
@@ -21,8 +23,25 @@ void AssetManager::loadAssets()
         qDebug() << "FREETYPE: init FreeType Library" << endl;
     }
 
+
+    QTemporaryDir tempDir;
+    const char *fontPath;
+    if (tempDir.isValid()) {
+        const QString tempFile = tempDir.path() + "/Aero.ttf";
+        if (QFile::copy(":/Fonts/Aero.ttf", tempFile)) {
+            qDebug() << "copy success";
+            fontPath = tempFile.toStdString().c_str();
+        } else {
+             qDebug() << "copy fail";
+             ABORT_APP
+        }
+    } else {
+        qDebug() << "invalid tempDir";
+        ABORT_APP
+    }
+
     FT_Face face;
-    const char *fontPath = "/Users/gunnarkarlsson/git/OpenGLPlayground/aero.ttf";
+    //const char *fontPath = "/Users/gunnarkarlsson/git/OpenGLPlayground/aero.ttf";
     if (FT_New_Face(ft, fontPath, 0, &face)) {
         qDebug() << "ERROR::FREETYPE: Failed to load font" << endl;
     } else {
