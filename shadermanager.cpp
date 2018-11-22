@@ -28,8 +28,8 @@ void ShaderManager::compileShaders()
     map.insert(std::make_pair("quadShader", quadShader));
 }
 
-Shader* ShaderManager::getShader(QString name)
+const Shader* ShaderManager::getShader(const QString name) const
 {
-    std::map<QString,Shader*>::iterator it = map.find(name);
+    std::map<QString,Shader*>::const_iterator it = map.find(name);
     return it->second;
 }

@@ -50,7 +50,7 @@ bool Cube::setVisible(const bool value)
     this->visible = value;
 }
 
-void Cube::render(glm::mat4 &view, glm::mat4 &projection, glm::vec3 lightPos, glm::vec3 lightColor, Shader *shader)
+void Cube::render(const glm::mat4 &view, const glm::mat4 &projection, const glm::vec3 &lightPos, const glm::vec3 &lightColor, const Shader *shader) const
 {
   if (visible) {
     shader->setInt("texture0", 0);

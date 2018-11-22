@@ -12,7 +12,7 @@ public:
     void setTextureId(unsigned int &id);
     void setVelocity(const int velocity);
     void setSize(const glm::vec3 size);
-    void render(glm::mat4 &view, glm::mat4 &projection, glm::vec3 lightPos, glm::vec3 lightColor, Shader *shader);
+    void render(const glm::mat4 &view, const glm::mat4 &projection, const glm::vec3 &lightPos, const glm::vec3 &lightColor, const Shader *shader) const;
     void initialize(const float x, const float y, const float z);
     void hide();
     bool isVisible();

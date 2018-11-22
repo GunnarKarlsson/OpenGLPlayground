@@ -10,7 +10,7 @@ public:
     ShaderManager();
     ~ShaderManager();
     void compileShaders();
-    Shader* getShader(QString name);
+    const Shader* getShader(const QString name) const;
 private:
     ShaderManager(const ShaderManager&);
     ShaderManager& operator=(const ShaderManager&);
