@@ -14,7 +14,7 @@ public:
     void setPosition(const float x, const float y, const float z);
     void setScale(const float x, const float y, const float z);
     void setRotation(const float xDegrees, const float yDegrees, const float zDegrees);
-    void render(const glm::mat4 &view, const glm::mat4 &projection, const glm::vec3 lightPos, const glm::vec3 lightColor, const Shader *shader);
+    void render(const glm::mat4 &view, const glm::mat4 &projection, const glm::vec3 &lightPos, const glm::vec3 &lightColor, const Shader *shader);
 private:
     std::vector<Mesh*> meshes;
 };

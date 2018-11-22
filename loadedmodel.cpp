@@ -35,7 +35,7 @@ void LoadedModel::setScale(const float x, const float y, const float z) {
     }
 }
 
-void LoadedModel::render(const glm::mat4 &view, const glm::mat4 &projection, const glm::vec3 lightPos, const glm::vec3 lightColor, const Shader *shader)
+void LoadedModel::render(const glm::mat4 &view, const glm::mat4 &projection, const glm::vec3 &lightPos, const glm::vec3 &lightColor, const Shader *shader)
 {
     for (int i = 0; i < meshes.size(); i++) {
         Mesh *mesh = meshes[i];
