@@ -103,7 +103,11 @@ DISTFILES += \
     Shaders/lightbox.vert \
     Shaders/loadedmodel.vert \
     Shaders/quad.vert \
-    Shaders/skybox.vert
+    Shaders/skybox.vert \
+    Meshes/rockFormationLarge.obj \
+    Meshes/spaceCraft4.obj \
+    Meshes/rockFormationLarge.mtl \
+    Meshes/spaceCraft4.mtl
 
 RESOURCES += \
     resources.qrc

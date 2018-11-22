@@ -42,11 +42,11 @@ void GameScene::init()
     lightBox->setSize(glm::vec3(0.2f, 0.2f, 0.2f));
 
     modelLoader = new ModelLoader();
-    spaceShip = modelLoader->Load("/Meshes","spaceCraft4.obj");
+    spaceShip = modelLoader->Load("/Meshes/Meshes/","spaceCraft4.obj");
     spaceShip->setPosition(4.0, 0.0, -1.0);
     spaceShip->setRotation(0.0f, 180.0f, 0.0f);
 
-    largeRock = modelLoader->Load("/Meshes","rockFormationLarge.obj");
+    largeRock = modelLoader->Load("/Meshes/Meshes/","rockFormationLarge.obj");
     largeRock->setPosition(3.0f, -2.0f, -4.0f);
     largeRock->setScale(5.0f, 5.0f, 5.0f);
 

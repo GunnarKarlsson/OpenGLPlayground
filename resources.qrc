@@ -27,9 +27,9 @@
         <file>Textures/SKY_UP.png</file>
     </qresource>
     <qresource prefix="/Meshes">
-        <file>spaceCraft4.obj</file>
-        <file>spaceCraft4.mtl</file>
-        <file>rockFormationLarge.obj</file>
-        <file>rockFormationLarge.mtl</file>
+        <file>Meshes/rockFormationLarge.mtl</file>
+        <file>Meshes/rockFormationLarge.obj</file>
+        <file>Meshes/spaceCraft4.mtl</file>
+        <file>Meshes/spaceCraft4.obj</file>
     </qresource>
 </RCC>
