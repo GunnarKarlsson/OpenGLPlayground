@@ -9,7 +9,7 @@ Skybox::Skybox() {
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 
-    skyboxShader = new SkyboxShader();
+    skyboxShader = new Shader(":/Shaders/skybox.vert", ":/Shaders/skybox.frag");
     skyboxShader->compile();
 }
 

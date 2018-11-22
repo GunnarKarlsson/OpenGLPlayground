@@ -24,12 +24,12 @@ Shader::Shader()
 
 }
 
-Shader::~Shader() {}
-
-const char* getShaderName()
+Shader::Shader(const char* vertPath, const char* fragPath)
 {
-    return "no shader name - base class";
+    compile(vertPath, fragPath);
 }
+
+Shader::~Shader() {}
 
 void Shader::compile()
 {
@@ -37,7 +37,7 @@ void Shader::compile()
 }
 
 void Shader::compile(const char* vertPath, const char* fragPath)
-{
+{   
     GLint status = 0;
 
     std::string vertStr;

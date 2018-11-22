@@ -7,6 +7,7 @@ class Shader
 {
 public:
     Shader();
+    Shader(const char* vertPath, const char* fragPath);
     virtual ~Shader();
     virtual void compile();
     void use() const;
@@ -23,7 +24,6 @@ public:
     void setMat3(const std::string &name, const glm::mat3 &mat) const;
     void setMat4(const std::string &name, const glm::mat4 &mat) const;
 protected:
-    virtual const char* getShaderName() = 0;
     void loadShader(const char* filePath, std::string &source);
     void compile(const char* vertPath, const char* fragPath);
     void printShaderLog(GLuint shader);

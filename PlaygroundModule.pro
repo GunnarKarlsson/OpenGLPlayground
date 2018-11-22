@@ -34,7 +34,6 @@ SOURCES += \
     mesh.cpp \
     loadedmodelshader.cpp \
     skybox.cpp \
-    skyboxshader.cpp \
     textshader.cpp \
     textrenderer.cpp \
     quad.cpp \
@@ -57,7 +56,6 @@ HEADERS += \
     mesh.h \
     loadedmodelshader.h \
     skybox.h \
-    skyboxshader.h \
     textshader.h \
     textrenderer.h \
     quad.h \

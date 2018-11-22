@@ -2,7 +2,7 @@
 #define SKYBOX_H
 
 #include "common.h"
-#include "skyboxshader.h"
+#include "shader.h"
 
 class Skybox
 {
@@ -13,7 +13,7 @@ public:
     void update(const glm::mat4 &view, const glm::mat4 &projection) const;
 private:
     unsigned int skyboxTextureId;
-    SkyboxShader * skyboxShader;
+    Shader * skyboxShader;
     unsigned int skyboxVAO;
     unsigned int skyboxVBO;
     unsigned int cubemapTexture;
