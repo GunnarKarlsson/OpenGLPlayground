@@ -2,7 +2,7 @@
 
 #include <QtMath>
 
-Mesh::Mesh(const std::vector<float> vertices, const std::vector<unsigned int> indices, const glm::vec3 color)
+Mesh::Mesh(std::vector<float> &vertices, std::vector<unsigned int> &indices, const glm::vec3 &color)
 {
     this->vertices = vertices;
     this->indices = indices;

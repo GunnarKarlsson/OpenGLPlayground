@@ -9,7 +9,7 @@
 class Mesh
 {
 public:
-    Mesh(const std::vector<float> vertices, const std::vector<unsigned int> indices, const glm::vec3 color);
+    explicit Mesh(std::vector<float> &vertices, std::vector<unsigned int> &indices, const glm::vec3 &color);
     ~Mesh();
     void setPosition(const float x, const float y, const float z);
     void setScale(const float x, const float y, const float z);
