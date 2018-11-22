@@ -6,8 +6,6 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
-#include <QTemporaryDir>
-
 AssetManager::AssetManager(){}
 
 AssetManager::~AssetManager() {}
@@ -23,22 +21,10 @@ void AssetManager::loadAssets()
         qDebug() << "FREETYPE: init FreeType Library" << endl;
     }
 
-
     QTemporaryDir tempDir;
-    const char *fontPath;
-    if (tempDir.isValid()) {
-        const QString tempFile = tempDir.path() + "/Aero.ttf";
-        if (QFile::copy(":/Fonts/Aero.ttf", tempFile)) {
-            qDebug() << "copy success";
-            fontPath = tempFile.toStdString().c_str();
-        } else {
-             qDebug() << "copy fail";
-             ABORT_APP
-        }
-    } else {
-        qDebug() << "invalid tempDir";
-        ABORT_APP
-    }
+    QString str = getResPath(tempDir, "/Fonts","Aero.ttf");
+    qDebug() << "path: " << str;
+    const char *fontPath = str.toStdString().c_str();
 
     FT_Face face;
     //const char *fontPath = "/Users/gunnarkarlsson/git/OpenGLPlayground/aero.ttf";
@@ -178,4 +164,21 @@ unsigned int AssetManager::loadSkyboxTextures(const std::vector<std::string> fac
     return textureID;
 }
 
+const QString AssetManager::getResPath(QTemporaryDir &tempDir, QString resFolder, QString fileName)
+{
+    const QString tempFile = tempDir.path() + "/" + fileName;
+    if (tempDir.isValid()) {
+        const QString tempFile = tempDir.path() + "/" + fileName;
+        if (QFile::copy(":" + resFolder + "/" + fileName, tempFile)) {
+            qDebug() << "copy success";
+        } else {
+             qDebug() << "copy fail";
+             ABORT_APP
+        }
+    } else {
+        qDebug() << "invalid tempDir";
+        ABORT_APP
+    }
+    return tempFile;
+}
 

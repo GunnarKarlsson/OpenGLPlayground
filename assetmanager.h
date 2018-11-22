@@ -2,6 +2,7 @@
 #define ASSETMANAGER_H
 
 #include <QFile>
+#include <QTemporaryDir>
 #include "common.h"
 
 class AssetManager
@@ -17,7 +18,8 @@ public:
 
     std::map<GLchar, Character> characters;
 private:
-    void loadTexture(const char* path, unsigned int &textureId);
+    const QString getResPath(QTemporaryDir &tempDir, QString resFolder, QString fileName);
+    void loadTexture(const char *path, unsigned int &textureId);
     unsigned int loadSkyboxTextures(const std::vector<std::string> faces);
 };
 
