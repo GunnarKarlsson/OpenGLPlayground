@@ -23,6 +23,8 @@ public:
     void render();
     void handleEvent(QEvent* event);
 private:
+    GameScene(const GameScene&);
+    GameScene& operator=(const GameScene&);
     AssetManager *assetManager;
     ShaderManager *shaderManager;
     ModelLoader *modelLoader;

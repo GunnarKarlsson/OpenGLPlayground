@@ -12,6 +12,8 @@ public:
     void compileShaders();
     Shader* getShader(QString name);
 private:
+    ShaderManager(const ShaderManager&);
+    ShaderManager& operator=(const ShaderManager&);
     std::map<QString, Shader*> map;
 };
 

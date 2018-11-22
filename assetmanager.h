@@ -19,6 +19,8 @@ public:
 
     std::map<GLchar, Character> characters;
 private:
+    AssetManager(const AssetManager&);
+    AssetManager& operator=(const AssetManager&);
     const QString getResPath(QTemporaryDir &tempDir, QString resFolder, QString fileName);
     void loadTexture(const char *path, unsigned int &textureId);
     unsigned int loadSkyboxTextures(const std::vector<std::string> faces);
