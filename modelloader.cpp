@@ -1,14 +1,19 @@
 #include "modelloader.h"
 #include <QDebug>
+#include <QTemporaryDir>
+#include <assetmanager.h>
 
 ModelLoader::ModelLoader() {}
 ModelLoader::~ModelLoader(){}
 
-LoadedModel* ModelLoader::Load(const QString pathToFile)
+LoadedModel* ModelLoader::Load(const QString resDir, const QString fileName)
 {
+    QTemporaryDir tempDir;
+    AssetManager am;
+    QString path = am.getWavefrontResPath(tempDir, resDir, fileName);
 
     Assimp::Importer importer;
-    const aiScene* scene = importer.ReadFile(pathToFile.toStdString(),
+    const aiScene* scene = importer.ReadFile(path.toStdString(),
                                              aiProcess_GenSmoothNormals |
                                              aiProcess_CalcTangentSpace |
                                              aiProcess_Triangulate |

@@ -12,7 +12,6 @@ AssetManager::~AssetManager() {}
 
 void AssetManager::loadAssets()
 {
-
     //start font load
     FT_Library ft;
     if (FT_Init_FreeType(&ft)) {
@@ -27,7 +26,6 @@ void AssetManager::loadAssets()
     const char *fontPath = str.toStdString().c_str();
 
     FT_Face face;
-    //const char *fontPath = "/Users/gunnarkarlsson/git/OpenGLPlayground/aero.ttf";
     if (FT_New_Face(ft, fontPath, 0, &face)) {
         qDebug() << "ERROR::FREETYPE: Failed to load font" << endl;
     } else {
@@ -94,15 +92,15 @@ void AssetManager::loadAssets()
     const char *quadTexturePath = quadPathStr.toStdString().c_str();
     loadTexture(quadTexturePath, quadTextureId);
 
-    std::vector<std::string> faces;
-    faces.push_back(getResPath(tempDir, "/Textures", "SKY_LEFT.png").toStdString());
-    faces.push_back(getResPath(tempDir, "/Textures", "SKY_RIGHT.png").toStdString());
-    faces.push_back(getResPath(tempDir, "/Textures", "SKY_UP.png").toStdString());
-    faces.push_back(getResPath(tempDir, "/Textures", "SKY_DOWN.png").toStdString());
-    faces.push_back(getResPath(tempDir, "/Textures", "SKY_FRONT.png").toStdString());
-    faces.push_back(getResPath(tempDir, "/Textures", "SKY_BACK.png").toStdString());
+    std::vector<std::string> skyBoxFaces;
+    skyBoxFaces.push_back(getResPath(tempDir, "/Textures", "SKY_LEFT.png").toStdString());
+    skyBoxFaces.push_back(getResPath(tempDir, "/Textures", "SKY_RIGHT.png").toStdString());
+    skyBoxFaces.push_back(getResPath(tempDir, "/Textures", "SKY_UP.png").toStdString());
+    skyBoxFaces.push_back(getResPath(tempDir, "/Textures", "SKY_DOWN.png").toStdString());
+    skyBoxFaces.push_back(getResPath(tempDir, "/Textures", "SKY_FRONT.png").toStdString());
+    skyBoxFaces.push_back(getResPath(tempDir, "/Textures", "SKY_BACK.png").toStdString());
 
-    skyboxTextureId = loadSkyboxTextures(faces);
+    skyboxTextureId = loadSkyboxTextures(skyBoxFaces);
 }
 
 void AssetManager::loadTexture(const char *filePath, unsigned int &textureId)
@@ -176,3 +174,9 @@ const QString AssetManager::getResPath(QTemporaryDir &tempDir, QString resFolder
     return tempFile;
 }
 
+const QString AssetManager::getWavefrontResPath(QTemporaryDir &tempDir, QString resFolder, QString fileName)
+{
+    QString fileNameBase = fileName.split(".",QString::SkipEmptyParts).at(0);
+    getResPath(tempDir, resFolder, fileNameBase + ".mtl");//create temp file, ignore return value
+    return getResPath(tempDir, resFolder, fileName);
+}

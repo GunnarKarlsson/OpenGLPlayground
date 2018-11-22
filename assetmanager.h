@@ -11,6 +11,7 @@ public:
     AssetManager();
     ~AssetManager();
     void loadAssets();
+    const QString getWavefrontResPath(QTemporaryDir &tempDir, QString resFolder, QString fileName);
 
     unsigned int cubeTextureId;
     unsigned int skyboxTextureId;

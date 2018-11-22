@@ -26,4 +26,10 @@
         <file>SKY_RIGHT.png</file>
         <file>SKY_UP.png</file>
     </qresource>
+    <qresource prefix="/Meshes">
+        <file>spaceCraft4.obj</file>
+        <file>spaceCraft4.mtl</file>
+        <file>rockFormationLarge.obj</file>
+        <file>rockFormationLarge.mtl</file>
+    </qresource>
 </RCC>
