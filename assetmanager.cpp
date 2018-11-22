@@ -21,7 +21,7 @@ void AssetManager::loadAssets()
     }
 
     QTemporaryDir tempDir;
-    QString str = getResPath(tempDir, "/Fonts","Aero.ttf");
+    QString str = getResPath(tempDir, "/Fonts/Fonts/","Aero.ttf");
     qDebug() << "fontpath: " << str;
     const char *fontPath = str.toStdString().c_str();
 

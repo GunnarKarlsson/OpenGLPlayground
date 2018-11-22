@@ -14,7 +14,7 @@
         <file>Shaders/basic.frag</file>
     </qresource>
     <qresource prefix="/Fonts">
-        <file>Aero.ttf</file>
+        <file>Fonts/Aero.ttf</file>
     </qresource>
     <qresource prefix="/Textures">
         <file>Textures/cube.png</file>

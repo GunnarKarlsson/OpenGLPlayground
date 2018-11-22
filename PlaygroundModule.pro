@@ -107,7 +107,8 @@ DISTFILES += \
     Meshes/rockFormationLarge.obj \
     Meshes/spaceCraft4.obj \
     Meshes/rockFormationLarge.mtl \
-    Meshes/spaceCraft4.mtl
+    Meshes/spaceCraft4.mtl \
+    Fonts/Aero.ttf
 
 RESOURCES += \
     resources.qrc
