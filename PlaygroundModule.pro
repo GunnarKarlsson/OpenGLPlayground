@@ -115,7 +115,9 @@ DISTFILES += \
     Fonts/Aero.ttf \
     Textures/smoke_03.png \
     Textures/smoke_04.png \
-    Textures/smoke_06.png
+    Textures/smoke_06.png \
+    Shaders/particle.frag \
+    Shaders/particle.vert
 
 RESOURCES += \
     resources.qrc

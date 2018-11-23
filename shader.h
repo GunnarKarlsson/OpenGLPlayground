@@ -6,8 +6,7 @@
 class Shader
 {
 public:
-    Shader();
-    Shader(const char* vertPath, const char* fragPath);
+    explicit Shader(const char* vertPath, const char* fragPath);
     virtual ~Shader();
     virtual void compile();
     void use() const;

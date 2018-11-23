@@ -19,11 +19,6 @@ static void printProgramLog(GLuint program)
     LOGE("Info log:\n%s", buf);
 }
 
-Shader::Shader()
-{
-
-}
-
 Shader::Shader(const char* vertPath, const char* fragPath)
 {
     compile(vertPath, fragPath);
