@@ -7,7 +7,7 @@
 class Particle
 {
 public:
-    Particle(float x, float y, float z, float inDx, float inDy, float inDz);
+    Particle(float x, float y, float z, float inDx, float inDy, float inDz, unsigned int &textureId);
     ~Particle();
     void setTextureId(unsigned int &id);
     void setVelocity(int velocity);
@@ -41,11 +41,10 @@ private:
     int velocity;
     float size;
     float stepSize;
-
+    unsigned int textureId;
     glm::mat4 model;
     bool visible;
     unsigned int VBO, VAO, EBO;
-    unsigned int textureId;
     float vertices[4*8] = {
         // positions         // texture coords
         // positions         // texture coords

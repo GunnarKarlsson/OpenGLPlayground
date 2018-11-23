@@ -1,7 +1,9 @@
 #include "particle.h"
 
-Particle::Particle(float x, float y, float z, float inDx, float inDy, float inDz)
+Particle::Particle(float x, float y, float z, float inDx, float inDy, float inDz, unsigned int &texId)
 {
+    textureId = texId;
+
     isInit = false;
     xPos = x;
     yPos = y;
@@ -11,7 +13,7 @@ Particle::Particle(float x, float y, float z, float inDx, float inDy, float inDz
     dz = inDz;
     visible = true;
 
-    size = 2.0f;
+    size = 3.0f;
 
     srand(time(0));
     int r = (rand() % 100) + 1;
@@ -74,10 +76,11 @@ void Particle::update()
 void Particle::render(glm::mat4 &view, glm::mat4 &projection, Shader *shader)
 {
     if (isInit && visible) {
+        glBindTexture(GL_TEXTURE_2D, textureId);
         glm::mat4 model = glm::mat4(1.0);
         model = glm::translate(model, glm::vec3(xPos, yPos, zPos));
         model = glm::scale(model, glm::vec3((float)size, (float)size, 1.0));
-        model = glm::rotate(model, rotationZ, glm::vec3(0.0f, 0.0f, 1.0f));
+
         shader->use();
         shader->setMat4("model", model);
         shader->setMat4("view", view);

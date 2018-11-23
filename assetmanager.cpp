@@ -101,7 +101,7 @@ void AssetManager::loadAssets()
 
     QString smoke03PathStr = getResPath(tempDir, "Textures/Textures/", "smoke_06.png");
     const char *smoke03TexturePath = smoke03PathStr.toStdString().c_str();
-    loadTexture(smoke03TexturePath, smoke02TextureId);
+    loadTexture(smoke03TexturePath, smoke03TextureId);
 
     std::vector<std::string> skyBoxFaces;
     skyBoxFaces.push_back(getResPath(tempDir, "/Textures/Textures/", "SKY_LEFT.png").toStdString());

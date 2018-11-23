@@ -27,6 +27,7 @@ Smoke::~Smoke()
 void Smoke::update()
 {
     int r = (rand() % 10) + 1;
+    int rxy = (rand() % 10) - 5;
     if (isInit) {
         for (int i = particles.size()-1; i >= 0; i--) {
             particles[i]->update();
@@ -37,10 +38,17 @@ void Smoke::update()
         --waitCounter;
         if (waitCounter <= 0) {
             waitCounter = waitCounterStart;
-            particles.push_back(new Particle(0.0f, 0.0f, -5.0f+0.1f*r, 0.0f, 0.02f, 0.0f));
+            unsigned int texId;
+            int random = (rand()) % 4;
+            qDebug() << "random: " << random;
+            if (random > 3) texId = assetManager->smoke02TextureId;
+            else if (random > 2) texId = assetManager->smoke01TextureId;
+            else texId = assetManager->smoke03TextureId;
+            particles.push_back(new Particle(0.0f, 0.0f, -5.0f+0.1f*r, 0.0f+rxy*0.0003f, 0.02f, 0.0f+rxy*0.0003f, texId));
         }
     }
-    qDebug() << "particles.size();" << particles.size();
+
+    //qDebug() << "particles.size();" << particles.size();
 
 }
 
@@ -53,11 +61,9 @@ void Smoke::render(glm::mat4 &view, glm::mat4 &projection)
 {
     if (isInit) {
         glDisable(GL_DEPTH_TEST);
-       glEnable (GL_BLEND);
-        //glEnable(GL_BLEND_COLOR);
+        glEnable (GL_BLEND);
         glBlendFunc(GL_SRC_COLOR, GL_ONE_MINUS_SRC_COLOR);
-        //glBlendFunc(GL_BLEND_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-        glBindTexture(GL_TEXTURE_2D, textureId);
+
         for (int i = 0; i < particles.size(); i++){
             particles[i]->render(view, projection, shader);
         }
