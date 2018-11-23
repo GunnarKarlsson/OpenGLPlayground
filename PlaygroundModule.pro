@@ -117,7 +117,9 @@ DISTFILES += \
     Textures/smoke_04.png \
     Textures/smoke_06.png \
     Shaders/particle.frag \
-    Shaders/particle.vert
+    Shaders/particle.vert \
+    Meshes/crater.obj \
+    Meshes/crater.mtl
 
 RESOURCES += \
     resources.qrc

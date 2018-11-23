@@ -39,6 +39,7 @@ private:
     Cube *lightBox;
     LoadedModel *spaceShip;
     LoadedModel *largeRock;
+    LoadedModel *crater;
 
     Skybox *skybox;
 

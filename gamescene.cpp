@@ -50,6 +50,10 @@ void GameScene::init()
     largeRock->setPosition(3.0f, -2.0f, -4.0f);
     largeRock->setScale(5.0f, 5.0f, 5.0f);
 
+    crater = modelLoader->Load("/Meshes/Meshes","crater.obj");
+    crater->setPosition(1.5f, 0.0f, -1.5f);
+    crater->setScale(2.0f, 2.0f, 2.0f);
+
     skybox = new Skybox();
     skybox->setTextureId(assetManager->skyboxTextureId);
 
@@ -85,6 +89,8 @@ void GameScene::render()
     //largeRock->render(view, projection, lightPos, lightColor, shaderManager->getShader("loadedModelShader"));
 
     //lightBox->render(view, projection, lightPos, lightColor, shaderManager->getShader("lightboxShader"));
+
+    crater->render(view, projection, lightPos, lightColor, shaderManager->getShader("loadedModelShader"));
 
     glm::mat4 skyboxView = glm::mat4(glm::mat3(camera->GetViewMatrix())); // remove translation from the view matrix
     skybox->update(skyboxView, projection);//TODO: rename to skybox->render

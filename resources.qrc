@@ -36,5 +36,7 @@
         <file>Meshes/rockFormationLarge.obj</file>
         <file>Meshes/spaceCraft4.mtl</file>
         <file>Meshes/spaceCraft4.obj</file>
+        <file>Meshes/crater.mtl</file>
+        <file>Meshes/crater.obj</file>
     </qresource>
 </RCC>
