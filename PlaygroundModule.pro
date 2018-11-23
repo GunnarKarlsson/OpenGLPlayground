@@ -33,7 +33,9 @@ SOURCES += \
     skybox.cpp \
     textrenderer.cpp \
     quad.cpp \
-    shadermanager.cpp
+    shadermanager.cpp \
+    smoke.cpp \
+    particle.cpp
 
 HEADERS += \
     stb_image.h \
@@ -52,7 +54,9 @@ HEADERS += \
     textshader.h \
     textrenderer.h \
     quad.h \
-    shadermanager.h
+    shadermanager.h \
+    smoke.h \
+    particle.h
 
 FORMS +=
 
