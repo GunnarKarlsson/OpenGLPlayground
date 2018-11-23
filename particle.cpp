@@ -11,7 +11,11 @@ Particle::Particle(float x, float y, float z, float inDx, float inDy, float inDz
     dz = inDz;
     visible = true;
 
-    size = 1.0f;
+    size = 2.0f;
+
+    srand(time(0));
+    int r = (rand() % 100) + 1;
+    rotationZ = r; //"random number"
 
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
@@ -73,7 +77,7 @@ void Particle::render(glm::mat4 &view, glm::mat4 &projection, Shader *shader)
         glm::mat4 model = glm::mat4(1.0);
         model = glm::translate(model, glm::vec3(xPos, yPos, zPos));
         model = glm::scale(model, glm::vec3((float)size, (float)size, 1.0));
-        //model = glm::rotate(model, -1.5708f, glm::vec3(0.0f, 1.0f, 0.0f));
+        model = glm::rotate(model, rotationZ, glm::vec3(0.0f, 0.0f, 1.0f));
         shader->use();
         shader->setMat4("model", model);
         shader->setMat4("view", view);

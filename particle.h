@@ -59,6 +59,7 @@ private:
         1, 2, 3  // second triangle
     };
     bool isInit = false;
+    float rotationZ;
 
 };
 
