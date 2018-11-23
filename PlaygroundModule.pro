@@ -108,7 +108,10 @@ DISTFILES += \
     Meshes/spaceCraft4.obj \
     Meshes/rockFormationLarge.mtl \
     Meshes/spaceCraft4.mtl \
-    Fonts/Aero.ttf
+    Fonts/Aero.ttf \
+    Textures/smoke_03.png \
+    Textures/smoke_04.png \
+    Textures/smoke_06.png
 
 RESOURCES += \
     resources.qrc

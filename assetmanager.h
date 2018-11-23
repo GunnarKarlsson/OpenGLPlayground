@@ -16,6 +16,9 @@ public:
     unsigned int cubeTextureId;
     unsigned int skyboxTextureId;
     unsigned int quadTextureId;
+    unsigned int smoke01TextureId;
+    unsigned int smoke02TextureId;
+    unsigned int smoke03TextureId;
 
     std::map<GLchar, Character> characters;
 private:

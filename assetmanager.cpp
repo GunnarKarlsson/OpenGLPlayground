@@ -91,6 +91,18 @@ void AssetManager::loadAssets()
     const char *quadTexturePath = quadPathStr.toStdString().c_str();
     loadTexture(quadTexturePath, quadTextureId);
 
+    QString smoke01PathStr = getResPath(tempDir, "Textures/Textures/", "smoke_03.png");
+    const char *smoke01TexturePath = smoke01PathStr.toStdString().c_str();
+    loadTexture(smoke01TexturePath, smoke01TextureId);
+
+    QString smoke02PathStr = getResPath(tempDir, "Textures/Textures/", "smoke_04.png");
+    const char *smoke02TexturePath = smoke02PathStr.toStdString().c_str();
+    loadTexture(smoke02TexturePath, smoke02TextureId);
+
+    QString smoke03PathStr = getResPath(tempDir, "Textures/Textures/", "smoke_06.png");
+    const char *smoke03TexturePath = smoke03PathStr.toStdString().c_str();
+    loadTexture(smoke03TexturePath, smoke02TextureId);
+
     std::vector<std::string> skyBoxFaces;
     skyBoxFaces.push_back(getResPath(tempDir, "/Textures/Textures/", "SKY_LEFT.png").toStdString());
     skyBoxFaces.push_back(getResPath(tempDir, "/Textures/Textures/", "SKY_RIGHT.png").toStdString());
