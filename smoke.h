@@ -4,19 +4,26 @@
 #include "particle.h"
 #include "common.h"
 #include "shader.h"
+#include "assetmanager.h"
 
 class Smoke
 {
 public:
-    explicit Smoke(int poolCount);
+    Smoke(AssetManager *am);
     ~Smoke();
     void update();
     void render(glm::mat4 &view, glm::mat4 &projection);
     void clear();
 private:
+    Smoke();
     Shader *shader;
-    const int particlePoolCount;
+    int particlePoolCount;
     std::vector<Particle*> particles;
+    int waitCounter;
+    int waitCounterStart;
+    bool isInit = false;
+    AssetManager *assetManager;
+    unsigned int textureId;
 };
 
 #endif // SMOKE_H

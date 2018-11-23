@@ -7,14 +7,13 @@
 class Particle
 {
 public:
-    Particle();
+    Particle(float x, float y, float z, float inDx, float inDy, float inDz);
     ~Particle();
     void setTextureId(unsigned int &id);
     void setVelocity(int velocity);
     void setSize(float size);
     void update();
     void render(glm::mat4 &view, glm::mat4 &projection, Shader *shader);
-    void initialize(float x, float y, float z, float inDx, float inDy, float inDz);
     void hide();
     void show();
     bool isVisible();
@@ -32,6 +31,7 @@ public:
     float getDz();
 
 private:
+    Particle();
     float xPos;
     float yPos;
     float zPos;
@@ -47,17 +47,18 @@ private:
     unsigned int VBO, VAO, EBO;
     unsigned int textureId;
     float vertices[4*8] = {
-        // positions          // colors           // texture coords
-        // positions          // colors           // texture coords
-        0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f, // top right
-        0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f, // bottom right
-        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
-        -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f  // top left
+        // positions         // texture coords
+        // positions         // texture coords
+        0.5f,  0.5f, 0.0f,   1.0f, 1.0f, // top right
+        0.5f, -0.5f, 0.0f,   1.0f, 0.0f, // bottom right
+        -0.5f, -0.5f, 0.0f,  0.0f, 0.0f, // bottom left
+        -0.5f,  0.5f, 0.0f,  0.0f, 1.0f  // top left
     };
     unsigned int indices[6] = {
         0, 1, 3, // first triangle
         1, 2, 3  // second triangle
     };
+    bool isInit = false;
 
 };
 

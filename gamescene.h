@@ -12,6 +12,7 @@
 #include "quad.h"
 #include "shader.h"
 #include "shadermanager.h"
+#include "smoke.h"
 
 class GameScene : public Scene
 {
@@ -44,6 +45,8 @@ private:
     TextRenderer *textRenderer;
 
     Quad *quad;
+
+    Smoke *smoke;
 
     int lastMouseX;
     int lastMouseY;

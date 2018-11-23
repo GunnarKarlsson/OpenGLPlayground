@@ -58,12 +58,14 @@ void GameScene::init()
     quad = new Quad(0.5f, 0.5f, 0.2f);
     quad->setTextureId(assetManager->quadTextureId);
 
+    smoke = new Smoke(assetManager);
+
     glEnable(GL_DEPTH_TEST);
 }
 
 void GameScene::update()
 {
-
+    smoke->update();
 }
 
 void GameScene::render()
@@ -78,20 +80,23 @@ void GameScene::render()
 
     texturedCube->render(view, projection, lightPos, lightColor, shaderManager->getShader("basicShader"));
 
-    spaceShip->render(view, projection, lightPos, lightColor, shaderManager->getShader("loadedModelShader"));
+    //spaceShip->render(view, projection, lightPos, lightColor, shaderManager->getShader("loadedModelShader"));
 
-    largeRock->render(view, projection, lightPos, lightColor, shaderManager->getShader("loadedModelShader"));
+    //largeRock->render(view, projection, lightPos, lightColor, shaderManager->getShader("loadedModelShader"));
 
-    lightBox->render(view, projection, lightPos, lightColor, shaderManager->getShader("lightboxShader"));
+    //lightBox->render(view, projection, lightPos, lightColor, shaderManager->getShader("lightboxShader"));
 
     glm::mat4 skyboxView = glm::mat4(glm::mat3(camera->GetViewMatrix())); // remove translation from the view matrix
     skybox->update(skyboxView, projection);//TODO: rename to skybox->render
 
+    /*
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     const glm::vec3 color = glm::vec3(1.0f, 1.0f, 1.0f);
     textRenderer->renderText(assetManager, shaderManager->getShader("textShader"), "OpenGL Playground", 10.0f, ((float)SCREEN_HEIGHT - 50.0f), 1.0f, color);
     glDisable(GL_BLEND);
+    */
+    smoke->render(view, projection);
 
     quad->render(shaderManager->getShader("quadShader"));
 }

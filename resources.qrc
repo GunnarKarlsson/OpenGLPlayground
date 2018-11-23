@@ -12,6 +12,8 @@
         <file>Shaders/skybox.frag</file>
         <file>Shaders/skybox.vert</file>
         <file>Shaders/basic.frag</file>
+        <file>Shaders/particle.frag</file>
+        <file>Shaders/particle.vert</file>
     </qresource>
     <qresource prefix="/Fonts">
         <file>Fonts/Aero.ttf</file>

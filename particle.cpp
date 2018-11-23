@@ -1,7 +1,18 @@
 #include "particle.h"
 
-Particle::Particle()
+Particle::Particle(float x, float y, float z, float inDx, float inDy, float inDz)
 {
+    isInit = false;
+    xPos = x;
+    yPos = y;
+    zPos = z;
+    dx = inDx;
+    dy = inDy;
+    dz = inDz;
+    visible = true;
+
+    size = 1.0f;
+
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
     glGenBuffers(1, &EBO);
@@ -21,7 +32,11 @@ Particle::Particle()
     // texture coord attribute
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
+    isInit = true;
 }
+
+Particle::Particle(){}
+
 
 Particle::~Particle()
 {
@@ -45,41 +60,28 @@ void Particle::setSize(float s)
 
 void Particle::update()
 {
-    xPos += dx;
-    yPos += dy;
-    zPos += dz;
+    if (isInit) {
+        xPos += dx;
+        yPos += dy;
+        zPos += dz;
+    }
 }
 
 void Particle::render(glm::mat4 &view, glm::mat4 &projection, Shader *shader)
 {
-    glm::mat4 model = glm::mat4(1.0);
-    model = glm::translate(model, glm::vec3(xPos, yPos, 0.0));
-    model = glm::scale(model, glm::vec3((float)size, (float)size, -1.0));
-    shader->use();
-    shader->setMat4("model", model);
-    shader->setMat4("view", view);
-    shader->setMat4("projection", projection);
+    if (isInit && visible) {
+        glm::mat4 model = glm::mat4(1.0);
+        model = glm::translate(model, glm::vec3(xPos, yPos, zPos));
+        model = glm::scale(model, glm::vec3((float)size, (float)size, 1.0));
+        //model = glm::rotate(model, -1.5708f, glm::vec3(0.0f, 1.0f, 0.0f));
+        shader->use();
+        shader->setMat4("model", model);
+        shader->setMat4("view", view);
+        shader->setMat4("projection", projection);
 
-    glEnable (GL_BLEND);
-    glBlendFunc(GL_SRC_COLOR, GL_ONE_MINUS_SRC_COLOR);
-
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, textureId);
-    glBindVertexArray(VAO);
-    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-    glBindTexture(GL_TEXTURE_2D, 0);
-
-    glDisable(GL_BLEND);
-}
-
-void Particle::initialize(float x, float y, float z, float inDx, float inDy, float inDz)
-{
-    xPos = x;
-    yPos = y;
-    zPos = z;
-    dx = inDx;
-    dy = inDy;
-    dz = inDz;
+        glBindVertexArray(VAO);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+    }
 }
 
 void Particle::hide()
